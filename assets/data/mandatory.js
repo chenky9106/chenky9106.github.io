@@ -1,8 +1,7 @@
 const site = {
     year: "2020-2022",
     // url: "https://github.com/duducheng/duducheng.github.io",
-    repoURL: "https://github.com/duducheng/duducheng.github.io/",
-    siteURL: "https://jiancheng-yang.com/",
+    repoURL: "https://github.com/chenky9106/chenky9106.github.io/",
     lastUpdated: "May, 2022",
     showPageviews: false,
     navbar: [
@@ -68,24 +67,6 @@ const about = {
     nameEN: "Jiancheng Yang",
     nameCN: "杨健程",
     affiliation: "PhD, Shanghai Jiao Tong University",
-    avatar: "assets/site/personal-square.jpg",
     contacts: [
-        {
-            //Please make sure the first one is always Google Scholar.
-            href: "https://scholar.google.com/citations?user=EHkDyiUAAAAJ",
-            src: "assets/site/google_scholar.jpg"
-        },
-        {
-            href: "https://www.linkedin.com/in/yangjiancheng/",
-            src: "assets/site/linkedin.jpg"
-        },
-        {
-            href: "https://github.com/duducheng",
-            src: "assets/site/github.jpg"
-        },
-        {
-            href: "mailto:jekyll4168@sjtu.edu.cn",
-            src: "assets/site/mail.png"
-        }
     ]
 };
