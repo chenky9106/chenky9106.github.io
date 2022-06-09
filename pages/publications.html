@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Publications</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../vender/bootstrap.min.css" rel="stylesheet">
+    <script src="../vender/vue.min.js"></script>
+    <link href="../assets/site/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+
+
+<body>
+
+    <div class="container" id="app">
+
+        <hr>
+
+        <p>Filter by Year:
+            <select class="form-select form-select-sm" v-model="selectedYear">
+                <option value="All">
+                    None
+                </option>
+                <option v-for="yyyy in years">
+                    {{yyyy}}
+                </option>
+            </select>
+            | Filter by Topic:
+            <select class="form-select form-select-sm" v-model="selectedTopic">
+                <option value="All">
+                    None
+                </option>
+                <option v-for="topic in topics">
+                    {{topic}}
+                </option>
+            </select>
+            | Numbered:
+            <span class="badge" v-for="listType in ['ul', 'ol']" v-bind:class="{'badge-dark': selectedList===listType}"
+                v-on:click="selectedList = listType">{{listType}}</span>
+            | <span class="badge" v-on:click="showSelected=!showSelected"
+                v-bind:class="{  'badge-dark': showSelected}">Show Selected: {{numberOfSelected}}</span>
+        </p>
+
+        <hr>
+
+        <component v-bind:is="selectedList" style="font-size: 10.5pt; font-family: 'Times New Roman', Times, serif;">
+            <li v-for="(item, pid) in publications" style="text-align:justify; text-justify:inter-ideograph"
+                v-if="(!showSelected || item.selected) && ( (selectedYear === 'All') || (selectedYear === item.year) ) && ( (selectedTopic === 'All') || ((item.topics.includes(selectedTopic))) )"
+                v-on:click="selectPublication(pid)"
+                v-bind:class="{'text-light bg-dark': (!showSelected) && item.selected}">
+
+                <span v-for="(author, uid) in item.authors">
+                    <span v-if="author.startsWith(about.nameEN)"><b>{{author}}</b></span><span
+                        v-else>{{author}}</span><span v-if="uid === (item.authors.length-1)">.</span><span v-else>,
+                    </span>
+                </span>
+
+                "<span v-html="item.title"></span>".
+                <i>
+                    {{item.venue}}<span v-if="item.abbr"> ({{item.abbr}})</span>, {{item.year}}.
+                </i>
+
+                <b v-if="item.highlight">{{item.highlight}}.</b>
+
+                <span v-if="item.note">({{item.note}})</span>
+            </li>
+        </component>
+
+        <hr>
+
+        <p>
+            Venues:
+            <span v-for="(count, venue) in venueCounter">
+                [{{venue}}
+                <span class="badge badge-dark">{{count}}</span>]
+            </span>
+        </p>
+
+        <hr>
+
+        <p align="center">
+            Copyright © {{site.year}} <span class="d-block d-sm-none"></span>{{about.nameCN}} {{about.nameEN}}
+        </p>
+
+        <p align="center">
+            <small>
+                This <a v-bind:href="site.siteURL" target="_blank">website</a> is hosted on <a
+                    v-bind:href="site.repoURL" target="_blank">GitHub</a>.
+                Updated on {{site.lastUpdated}}.
+            </small>
+        </p>
+
+        <p align="center" v-show="site.showPageviews">
+            <!-- Please DO NOT use the following page tracker if you are using my website as template. -->
+            <small>Pageviews since Nov, 2020:</small><br>
+            <a href="https://clustrmaps.com/site/1behp" title="Visit tracker">
+                <img
+                    src="https://clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=7RCklwYfZbd5GuUGn-g2BcGrODdGF07rzL_Yu0kH1cg&co=a1bfd4&ct=ffffff" />
+            </a>
+        </p>
+
+    </div>
+
+    <script src="../assets/data/mandatory.js"></script>
+    <script src="../assets/data/publications.js"></script>
+
+    <script src="../assets/app.js"></script>
+
+    <script>
+        app.selectedTopic = "All";
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Source Data</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../vender/bootstrap.min.css" rel="stylesheet">
+    <script src="../vender/vue.min.js"></script>
+    <link href="../assets/site/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+
+
+<body>
+
+    <div class="container" id="app">
+
+        <br> <br>
+
+        <p>Filter:
+            <span class="badge" v-for="tag in tags" v-on:click="selectedTag = tag"
+                v-bind:class="{ 'badge-dark': selectedTag == tag}">
+                {{tag}}
+            </span>
+        </p>
+
+        <pre v-for="tag in tags" v-if="selectedTag === tag">{{JSON.stringify(eval(tag),null,2)}}</pre>
+
+
+        <p align="center">
+            Copyright © {{site.year}} <span class="d-block d-sm-none"></span>{{about.nameCN}} {{about.nameEN}}
+        </p>
+
+        <p align="center">
+            <small>
+                This <a v-bind:href="site.siteURL" target="_blank">website</a> is hosted on <a v-bind:href="site.repoURL" target="_blank">GitHub</a>.
+                Updated on {{site.lastUpdated}}.
+            </small>
+        </p>
+
+        <p align="center" v-show="site.showPageviews">
+            <!-- Please DO NOT use the following page tracker if you are using my website as template. -->
+            <small>Pageviews since Nov, 2020:</small><br>
+            <a href="https://clustrmaps.com/site/1behp" title="Visit tracker">
+                <img
+                    src="https://clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=7RCklwYfZbd5GuUGn-g2BcGrODdGF07rzL_Yu0kH1cg&co=a1bfd4&ct=ffffff" />
+            </a>
+        </p>
+
+    </div>
+
+
+    <script src="../assets/data/mandatory.js"></script>
+    <script src="../assets/data/biography.js"></script>
+    <script src="../assets/data/opening.js"></script>
+    <script src="../assets/data/news.js"></script>
+    <script src="../assets/data/publications.js"></script>
+    <script src="../assets/data/honors.js"></script>
+    <script src="../assets/data/activities.js"></script>
+    <script src="../assets/data/talks.js"></script>
+    <script src="../assets/data/misc.js"></script>
+    <script src="../assets/app.js"></script>
+
+</body>
+
+</html>
