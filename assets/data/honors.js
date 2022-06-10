@@ -1,5 +1,5 @@
 const honors = [
-    
+
 ];
 
 const competitions = [
