@@ -5,430 +5,194 @@
     <title>Kaiyuan Chen</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="Jiancheng Yang, Yang Jiancheng, Shanghai Jiao Tong University, 杨健程">
-    <meta name="description" content="Jiancheng Yang's home page">
+    <meta name="keywords" content="Kaiyuan Chen, Chen Kaiyuan, ByteDance, AI4Weather">
+    <meta name="description" content="Kaiyuan Chen's home page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="vender/bootstrap.min.css" rel="stylesheet">
     <link href="vender/jemdoc.css" rel="stylesheet">
     <script src="vender/vue.min.js"></script>
     <link href="assets/site/favicon.ico" rel="icon" type="image/x-icon" />
+    <style>
+        .publication-item:hover {
+            background-color: #f8f9fa;
+            transition: background-color 0.3s;
+        }
+        .badge-custom {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 0.25em 0.4em;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .education-item {
+            margin-bottom: 15px;
+        }
+        .education-date {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 
-
 <body>
-
     <div class="container" id="app">
-
         <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
                 <div class="navbar-nav mr-auto">
-                    <span v-for="item in site.navbar">
-                        <a class="nav-item nav-link" v-bind:href="item.href">{{item.tag}}</a>
-                    </span>
+                    <a class="nav-item nav-link" href="#about">About</a>
+                    <a class="nav-item nav-link" href="#education">Education</a>
+                    <a class="nav-item nav-link" href="#publications">Publications</a>
+                    <a class="nav-item nav-link" href="#research">Research</a>
                 </div>
-
-                <div class="navbar-nav ml-auto">
-                    <span class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Links
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <span v-for="item in site.links">
-                                <a class="dropdown-item" v-bind:href="item.href" target="_blank">{{item.tag}}</a>
-                            </span>
-                        </div>
-                    </span>
-                </div>
-
             </div>
-
         </nav>
 
-        <hr>
-
-        <div class="row" id="sectionAbout">
-
-            <div class="d-none d-md-block col-md-4 col-lg-3">
-                <img v-bind:src="about.avatar" class="img-fluid">
+        <div class="row mt-5 pt-4" id="about">
+            <div class="col-md-4 text-center">
+                <img src="assets/images/profile.jpg" alt="Kaiyuan Chen" class="profile-img">
             </div>
-
-            <div class="col-md-8 col-lg-9">
-                <div>
-                    <h1>
-                        <b>{{about.nameCN}}<br>{{about.nameEN}}</b>
-                    </h1>
-                </div>
-
-                <h3><b>{{about.affiliation}}</b></h3>
-
-                <span v-for="contact in about.contacts">
-                    <a v-bind:href="contact.href" target="_blank">
-                        <img v-bind:src="contact.src" height="30px" class="img-fluid">
-                    </a>
-                    &nbsp;
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="row" id="sectionBiography">
-            <div class="col">
-                <h2>
-                    <b>Biography</b>
-                    <small>
-                        <span class="badge" v-bind:class="{'badge-dark': selectedBiography === 'en'}"
-                            v-on:mouseover="selectedBiography = 'en'">[En]</span>
-                        <span class="badge" v-bind:class="{'badge-dark': selectedBiography === 'cn'}"
-                            v-on:mouseover="selectedBiography = 'cn'">[中]</span>
-                    </small>
-                </h2>
-                <p style="text-align:justify; text-justify:inter-ideograph">
-                    <span v-html="biography[selectedBiography]"></span>
+            <div class="col-md-8">
+                <h1 class="mb-3"><b>Kaiyuan Chen</b></h1>
+                
+                <p class="mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-building mr-2" viewBox="0 0 16 16">
+                        <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/>
+                        <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
+                    </svg>
+                    ByteDance
+                </p>
+                
+                <p class="mb-3">
+                    <span class="badge badge-custom">AI4Weather</span>
+                    <span class="badge badge-custom">Video Generation</span>
+                    <span class="badge badge-custom">Deep Learning</span>
+                    <span class="badge badge-custom">LLM</span>
+                    <span class="badge badge-custom">Scaling Laws</span>
                 </p>
 
-                <!-- <p style="text-align:justify; text-justify:inter-ideograph">
-                    <i>
-                        <b>Opening:</b>
-                        <span v-html="opening.header"></span>
-                        (See this <a href="pages/opening.html" target="_blank">list</a>)
-                        <br>
-                        <span v-html="opening.footer"></span>
-                    </i>
-                </p> -->
+                <div class="contact-info mb-4">
+                    <p class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-google mr-2" viewBox="0 0 16 16">
+                            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                        </svg>
+                        <a href="mailto:chenky2022@gmail.com">chenky2022@gmail.com</a>
+                    </p>
+                    <p class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github mr-2" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        <a href="https://github.com/chenky9106" target="_blank">chenky9106</a>
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- <div class="row" id="sectionNews">
+        <div class="row mt-4" id="education">
             <div class="col">
-                <h2><b>News</b></h2>
-                <div style="height: 250px; overflow: auto;">
-                    <ul>
-                        <li v-for="item in news.slice(0,10)" style="text-align:justify; text-justify:inter-ideograph">
-                            [{{item.mmyyyy}}]
-                            <span v-html="item.text"></span>
-                        </li>
-                    </ul>
+                <h2 class="mb-4"><b>Education</b></h2>
+                
+                <div class="education-item">
+                    <h5>M.S. in Software Engineering</h5>
+                    <p class="mb-1">Machine Learning Lab, School of Software, Tsinghua University</p>
+                    <p class="education-date">Aug 2021 - Jun 2024</p>
+                </div>
+
+                <div class="education-item">
+                    <h5>B.S. in Mathematics</h5>
+                    <p class="mb-1">Department of Mathematical Sciences, Tsinghua University</p>
+                    <p class="education-date">Aug 2017 - Jun 2021</p>
                 </div>
             </div>
-        </div> -->
+        </div>
 
-        <div class="row" id="sectionPublications">
-
+        <div class="row mt-4" id="publications">
             <div class="col">
-                <h2>
-                    <b>Selected Publications</b>
-                </h2>
-                <i>
-                    Full publication list on <a v-bind:href="about.contacts[0].href" target="_blank">Google Scholar</a>.
-                    * indicates equal contribution.
-                </i>
-                <p>
-                    <small>
-                        Filter by Year:
-                        <select class="form-select form-select-sm" v-model="selectedYear">
-                            <option value="All">
-                                All
-                            </option>
-                            <option v-for="yyyy in years">
-                                {{yyyy}}
-                            </option>
-                        </select>
-                        | Filter by Topic:
-                        <select class="form-select form-select-sm" v-model="selectedTopic">
-                            <option value="All">
-                                All
-                            </option>
-                            <option v-for="topic in topics">
-                                {{topic}}
-                            </option>
-                        </select>
-                    </small>
-                </p>
-
-                <ul>
-                    <li v-for="(item, pid) in publications" style="text-align:justify; text-justify:inter-ideograph"
-                        v-on:mouseover="hoverPubId = pid" v-on:mouseleave="hoverPubId = -1"
-                        v-if="( (selectedYear === 'All') || (selectedYear === item.year) ) && ( (selectedTopic === 'All') || ((item.topics.includes(selectedTopic))) )">
-
-                        <div v-bind:class="{'bg-light': hoverPubId === pid}">
-                            <b>
-                                <a v-bind:href="item.file" target="_blank">
-                                    <span v-html="item.title"></span>
+                <h2 class="mb-4"><b>Publications</b></h2>
+                
+                <div class="publication-item p-3 mb-4 rounded">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="mb-2">
+                                <a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank" class="text-dark">
+                                    CogDPM: Diffusion Probabilistic Models via Cognitive Predictive Coding
                                 </a>
-                            </b>
-                            <br>
-
-                            <small v-if="item.note">({{item.note}})<br></small>
-
-                            <span v-for="(author, uid) in item.authors">
-                                <span v-if="author.startsWith(about.nameEN)"><b>{{author}}</b></span><span
-                                    v-else>{{author}}</span><span v-if="uid === (item.authors.length-1)">.</span><span
-                                    v-else>, </span>
-                            </span>
-                            <br>
-
-                            <i class="d-none d-sm-block">
-                                {{item.venue}}<span v-if="item.abbr"> ({{item.abbr}})</span>, {{item.year}}
-                            </i>
-                            <i class="d-block d-sm-none">
-                                <span v-if="item.abbr">{{item.abbr}}, {{item.year}}</span>
-                                <span v-else>{{item.venue}}, {{item.year}}</span>
-                            </i>
-                            <p v-if="item.highlight" style="color:red">({{item.highlight}})</p>
-                            <p v-if="item.materials">
-                                <span v-for="material in item.materials">
-                                    [<a v-bind:href="material.href" target="_blank">{{material.tag}}</a>]
-                                </span>
+                            </h5>
+                            <p class="mb-2">K Chen, X Guo, Y Zhang, J Wang, M Long</p>
+                            <p class="text-muted mb-2">International Conference on Machine Learning (ICML), 2024</p>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="assets/images/cogdpm.jpg" alt="CogDPM Architecture" class="img-fluid rounded" style="width: 100%; max-height: 200px; object-fit: contain;">
+                        </div>
+                        <div class="col-md-7">
+                            <p class="text-justify" style="font-size: 0.95em;">
+                                This work introduces CogDPM, bridging diffusion models with cognitive science's Predictive Coding theory. 
+                                We develop a novel precision estimation method using diffusion models' hierarchical sampling capabilities, 
+                                enabling better attention allocation to signals with varying precision. The model demonstrates superior 
+                                performance in predicting rigid body and fluid motion, as well as real-world weather forecasting tasks 
+                                on U.K. precipitation and ERA surface wind datasets.
                             </p>
                         </div>
+                    </div>
+                </div>
 
-                        <img v-if="item.img && (hoverPubId === pid)" v-bind:src="item.img" class="img-fluid"
-                            style="max-height:250px; width:auto">
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div class="row" id="sectionPreprints" v-if="preprints.length>0">
-
-            <div class="col">
-                <h2><b>Selected Preprints</b></h2>
-
-                <ul>
-                    <li v-for="(item, pid) in preprints" style="text-align:justify; text-justify:inter-ideograph"
-                        v-on:mouseover="hoverPreId = pid" v-on:mouseleave="hoverPreId = -1">
-
-                        <b><span v-html="item.title"></span></b>
-                        <br>
-
-                        <small v-if="item.note">({{item.note}})<br></small>
-
-                        <span v-for="(author, uid) in item.authors">
-                            <span v-if="author.startsWith(about.nameEN)"><b>{{author}}</b></span><span
-                                v-else>{{author}}</span><span v-if="uid === (item.authors.length-1)">.</span><span
-                                v-else>, </span>
-                        </span>
-                        <br>
-
-                        <i><a v-bind:href="item.file" target="_blank">{{item.venue}}</a></i>
-
-                        <p v-if="item.highlight" style="color:red">({{item.highlight}})</p>
-                        <p v-if="item.materials">
-                            <span v-for="material in item.materials">
-                                <a v-bind:href="material.href" target="_blank">
-                                    [{{material.tag}}]
+                <div class="publication-item p-3 mb-4 rounded">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="mb-2">
+                                <a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank" class="text-dark">
+                                    Skilful nowcasting of extreme precipitation with NowcastNet
                                 </a>
-                            </span>
-                        </p>
-
-                        <img v-if="item.img && (hoverPreId === pid)" v-bind:src="item.img" class="img-fluid"
-                            style="max-height:250px; width:auto">
-
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div class="row" id="sectionHonors">
-            <div class="col">
-                <h2><b>Selected Honors</b></h2>
-                <ul>
-                    <li v-for="item in honors" style="text-align:justify; text-justify:inter-ideograph">
-                        [{{item.yyyy}}]
-                        <span v-html="item.text"></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- <div class="row" id="sectionCompetitions">
-            <div class="col">
-                <h2><b>Selected AI Competitions</b></h2>
-                <ul>
-                    <li v-for="item in competitions" style="text-align:justify; text-justify:inter-ideograph">
-                        [{{item.yyyy}}]
-                        <span v-html="item.text"></span>
-                    </li>
-                </ul>
-            </div>
-        </div> -->
-        <!-- 
-        <div class="row" id="sectionActivities" v-on:mouseover="activityHover=true"
-            v-on:mouseleave="activityHover=false">
-            <div class="col">
-                <h2>
-                    <b>Professional Activities</b>
-                    <span class="badge" v-bind:class="{'badge-dark': activityHover}">
-                        <small>[Hover to view]</small>
-                    </span>
-                </h2>
-
-                <div v-if="activityHover">
-
-                    <h3><b>Organizer</b></h3>
-                    <ul>
-                        <li v-for="item in activities.organizer"
-                            style="text-align:justify; text-justify:inter-ideograph">
-                            <span v-html="item"></span>
-                        </li>
-                    </ul>
-
-                    <h3><b>Conference Program Committee / Reviewer</b></h3>
-                    <ul>
-                        <li v-for="(item, pid) in activities.conference"
-                            style="text-align:justify; text-justify:inter-ideograph" 
-                            v-on:mouseover="hoverConfId = pid"
-                            v-on:mouseleave="hoverConfId = -1">
-                            <span class="d-none d-sm-block">
-                                <span v-if="hoverConfId === pid" class="badge badge-dark">
-                                    <small>{{item.year}}</small>
-                                </span>
-                                {{item.venue}} ({{item.abbr}})
-                            </span>
-                            <span class="d-block d-sm-none">
-                                {{item.abbr}} 
-                                <span v-if="hoverConfId === pid" class="badge badge-dark">
-                                    <small>{{item.year}}</small>
-                                </span>
-                            </span>
-                        </li>
-                    </ul>
-
-                    <h3><b>Journal Reviewer</b></h3>
-                    <ul>
-                        <li v-for="item in activities.journal" style="text-align:justify; text-justify:inter-ideograph">
-                            <span class="d-none d-sm-block">
-                                {{item.venue}} <span v-if="item.abbr">({{item.abbr}})</span>
-                            </span>
-                            <span class="d-block d-sm-none">
-                                <span v-if="item.abbr">{{item.abbr}}</span>
-                                <span v-else>{{item.venue}}</span>
-                            </span>
-                        </li>
-                    </ul>
+                            </h5>
+                            <p class="mb-2">Y Zhang, M Long, K Chen, L Xing, R Jin, MI Jordan, J Wang</p>
+                            <p class="text-muted mb-2">Nature 619 (7970), 526-532, 2023</p>
+                            <span class="badge badge-secondary">Citations: 210</span>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="assets/images/nowcastnet.jpg" alt="NowcastNet Architecture" class="img-fluid rounded" style="width: 100%; max-height: 200px; object-fit: contain;">
+                        </div>
+                        <div class="col-md-7">
+                            <p class="text-justify mt-2" style="font-size: 0.95em;">
+                                NowcastNet is a groundbreaking model that combines physical-evolution schemes with conditional-learning methods 
+                                for extreme precipitation forecasting. The model achieves unprecedented accuracy in predicting precipitation 
+                                patterns over large regions (2,048 km × 2,048 km) with up to 3-hour lead times. Evaluated by 62 professional 
+                                meteorologists, NowcastNet ranked first in 71% of cases, particularly excelling in predicting extreme 
+                                precipitation events with complex advective or convective processes.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
-        <!-- <div class="row" id="sectionTalks" v-on:mouseover="talkHover=true" v-on:mouseleave="talkHover=false">
-
+        <div class="row mt-4 mb-5" id="research">
             <div class="col">
-                <h2>
-                    <b>Selected Talks</b>
-                    <span class="badge" v-bind:class="{'badge-dark': talkHover}">
-                        <small>[Hover to view]</small>
-                    </span>
-                </h2>
-
-                <ul v-if="talkHover">
-                    <li v-for="(item, pid) in talks" style="text-align:justify; text-justify:inter-ideograph">
-
-                        <b>{{item.title}}</b>
-                        <span v-if="item.materials">
-                            <span v-for="material in item.materials">
-                                <a v-bind:href="material.href" target="_blank">
-                                    [{{material.tag}}]
-                                </a>
-                            </span>
-                        </span>
-                        <br>
-
-                        <p v-for="(turn, uid) in item.turns">
-                            at: [{{turn.mmyyyy}}]
-                            <i>
-                                <span v-html="turn.where"></span>
-                            </i>
-                            <span v-if="turn.note">&nbsp;(<span v-html="turn.note"></span>)</span>
-                        </p>
-
-                    </li>
-                </ul>
-
-            </div>
-        </div> -->
-
-        <div class="row" id="sectionMisc" v-on:mouseover="miscHover=true" v-on:mouseleave="miscHover=false">
-            <div class="col">
-                <h2>
-                    <b>Misc.</b>
-                    <span class="badge" v-bind:class="{'badge-dark': miscHover}">
-                        <small>[Hover to view]</small>
-                    </span>
-                </h2>
-
-                <ul v-if="miscHover">
-                    <li v-for="item in misc" style="text-align:justify; text-justify:inter-ideograph">
-                        <span v-html="item"></span>
-                    </li>
+                <h2 class="mb-4"><b>Research Interests</b></h2>
+                <ul>
+                    <li>AI for Weather Forecasting</li>
+                    <li>Video Generation</li>
+                    <li>Deep Learning</li>
+                    <li>Diffusion Models</li>
+                    <li>Large Language Models (LLM)</li>
+                    <li>Synthetic Data Generation</li>
+                    <li>Scaling Laws in AI</li>
                 </ul>
             </div>
         </div>
-
-        <blockquote class="blockquote text-right">
-            <i>"Do not go gentle into that good night."</i>
-            <footer class="blockquote-footer">
-                Poem by Dylan Thomas /
-                <cite>
-                    <a href="https://en.wikipedia.org/wiki/Interstellar_(film)" target="_blank">
-                        Interstellar
-                    </a>
-                </cite>
-                (Film)
-            </footer>
-        </blockquote>
-
-        <hr>
-
-        <p align="center">
-            Copyright © {{site.year}} <span class="d-block d-sm-none"></span>{{about.nameCN}} {{about.nameEN}}
-        </p>
-
-        <p align="center">
-            <small>
-                This <a v-bind:href="site.siteURL" target="_blank">website</a> is hosted on <a
-                    v-bind:href="site.repoURL" target="_blank">GitHub</a>.
-                Updated on {{site.lastUpdated}}.
-            </small>
-        </p>
-
-        <p align="center" v-show="site.showPageviews">
-            <!-- Please DO NOT use the following page tracker if you are using my website as template. -->
-            <small>Pageviews since Nov, 2020:</small><br>
-            <a href="https://clustrmaps.com/site/1behp" title="Visit tracker">
-                <img
-                    src="https://clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=7RCklwYfZbd5GuUGn-g2BcGrODdGF07rzL_Yu0kH1cg&co=a1bfd4&ct=ffffff" />
-            </a>
-        </p>
-
 
     </div>
 
-    <script src="vender/jquery-3.5.1.min.js"></script>
+    <script src="vender/jquery.min.js"></script>
     <script src="vender/bootstrap.min.js"></script>
-
-    <script src="assets/data/mandatory.js"></script>
-    <script src="assets/data/biography.js"></script>
-    <script src="assets/data/opening.js"></script>
-    <!-- <script src="assets/data/news.js"></script> -->
-    <script src="assets/data/publications.js"></script>
-    <script src="assets/data/honors.js"></script>
-    <script src="assets/data/activities.js"></script>
-    <script src="assets/data/talks.js"></script>
-    <script src="assets/data/misc.js"></script>
-
-    <script src="assets/app.js"></script>
-
 </body>
-
 </html>
