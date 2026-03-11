@@ -13,30 +13,360 @@
     <script src="vender/vue.min.js"></script>
     <link href="assets/site/favicon.ico" rel="icon" type="image/x-icon" />
     <style>
-        .publication-item:hover {
-            background-color: #f8f9fa;
-            transition: background-color 0.3s;
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap');
+
+        :root {
+            --bg: #f4f8fb;
+            --ink: #0f172a;
+            --muted: #516073;
+            --primary: #0f4c81;
+            --accent: #d97706;
+            --card: #ffffff;
+            --line: #d7e3ef;
         }
+
+        body {
+            font-family: 'Manrope', 'Helvetica Neue', sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 12% -8%, rgba(15, 76, 129, 0.14), transparent 36%),
+                radial-gradient(circle at 90% 0%, rgba(217, 119, 6, 0.12), transparent 34%),
+                linear-gradient(180deg, #f9fcff 0%, var(--bg) 100%);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            color: #0f2238;
+        }
+
+        .navbar {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.84) !important;
+            border-bottom: 1px solid rgba(15, 76, 129, 0.14);
+        }
+
         .badge-custom {
-            background-color: #e9ecef;
-            color: #495057;
-            padding: 0.25em 0.4em;
-            border-radius: 0.25rem;
-            font-size: 0.875em;
+            background-color: #e9eef6;
+            color: #29435c;
+            padding: 0.28em 0.52em;
+            border-radius: 999px;
+            font-size: 0.82em;
+            border: 1px solid #cfdeee;
         }
+
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 210px;
+            height: 210px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 14px 26px rgba(13, 35, 58, 0.12);
         }
+
         .education-item {
             margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #d5e0eb;
         }
+
         .education-date {
-            color: #6c757d;
+            color: #5e6d80;
             font-size: 0.9em;
+        }
+
+        .pub-headline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .pub-headline small {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .pub-subtitle {
+            margin-top: 1.35rem;
+            margin-bottom: 0.9rem;
+            color: #163a5f;
+            font-size: 1.22rem;
+        }
+
+        .pub-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.2rem;
+        }
+
+        .pub-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 26px rgba(15, 76, 129, 0.08);
+            animation: riseIn 0.7s ease both;
+        }
+
+        .pub-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 30px rgba(15, 76, 129, 0.14);
+            transition: all 0.25s ease;
+        }
+
+        .pub-cover {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-bottom: 1px solid #e4edf5;
+            background: #f2f6fb;
+        }
+
+        .pub-card-body {
+            padding: 0.95rem 1rem 1rem;
+        }
+
+        .pub-kicker {
+            color: #3b5f7f;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.4rem;
+        }
+
+        .pub-title {
+            font-size: 1.03rem;
+            margin-bottom: 0.48rem;
+            line-height: 1.3;
+        }
+
+        .pub-title a {
+            color: #102a43;
+            text-decoration: none;
+        }
+
+        .pub-title a:hover {
+            color: #0f4c81;
+            text-decoration: underline;
+        }
+
+        .pub-authors {
+            color: #506277;
+            font-size: 0.89rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .pub-desc {
+            color: #2f4359;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .meta-pill {
+            font-size: 0.78rem;
+            border-radius: 999px;
+            padding: 0.2rem 0.55rem;
+            border: 1px solid #d8e4ef;
+            background: #f4f9ff;
+            color: #20476a;
+            font-weight: 600;
+        }
+
+        .meta-highlight {
+            background: #fff4e8;
+            border-color: #f5cf9f;
+            color: #8a4a03;
+        }
+
+        .timeline-wrap {
+            position: relative;
+            margin-top: 0.8rem;
+            padding-left: 0.2rem;
+        }
+
+        .timeline-wrap::before {
+            content: "";
+            position: absolute;
+            left: 84px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #d2e3f2 0%, #9ec0df 60%, #d2e3f2 100%);
+        }
+
+        .timeline-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: 68px 1fr;
+            gap: 1rem;
+            margin-bottom: 1.3rem;
+            animation: riseIn 0.7s ease both;
+        }
+
+        .timeline-year {
+            color: #24496d;
+            font-weight: 800;
+            font-size: 1rem;
+            align-self: start;
+            padding-top: 0.6rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #d7e3ef;
+            border-radius: 14px;
+            padding: 0.85rem;
+            margin-left: 0.5rem;
+            box-shadow: 0 8px 20px rgba(16, 42, 67, 0.07);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -11px;
+            top: 24px;
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: #6b9bc9;
+            border: 2px solid #f9fcff;
+            box-shadow: 0 0 0 2px #9ec0df;
+        }
+
+        .timeline-item.highlight {
+            border-left: 4px solid var(--accent);
+        }
+
+        .timeline-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-title {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            line-height: 1.35;
+        }
+
+        .timeline-title a {
+            color: #102a43;
+            text-decoration: none;
+        }
+
+        .timeline-title a:hover {
+            color: #0f4c81;
+            text-decoration: underline;
+        }
+
+        .timeline-venue {
+            color: #536780;
+            font-size: 0.86rem;
+        }
+
+        .timeline-main {
+            margin-top: 0.7rem;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 0.8rem;
+            align-items: start;
+        }
+
+        .timeline-main img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #dce8f3;
+            background: #f5f8fc;
+        }
+
+        .timeline-desc {
+            margin-bottom: 0.45rem;
+            color: #2e435c;
+            font-size: 0.9rem;
+            line-height: 1.45;
+        }
+
+        .timeline-links a {
+            display: inline-block;
+            margin-right: 0.65rem;
+            color: #0f4c81;
+            font-size: 0.84rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .timeline-links a:hover {
+            color: #0a365b;
+            text-decoration: underline;
+        }
+
+        @keyframes riseIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .pub-highlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .timeline-wrap::before {
+                left: 10px;
+            }
+
+            .timeline-row {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+                margin-bottom: 1rem;
+            }
+
+            .timeline-year {
+                padding-left: 0.7rem;
+                padding-top: 0;
+                font-size: 0.95rem;
+            }
+
+            .timeline-item {
+                margin-left: 0;
+                padding: 0.75rem;
+            }
+
+            .timeline-item::before {
+                left: -5px;
+                top: 18px;
+            }
+
+            .timeline-main {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -89,8 +419,8 @@
                         <a href="https://scholar.google.com/citations?user=1bKT6toAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
                     </p>
                     <p class="mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-google mr-2" viewBox="0 0 16 16">
-                            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope mr-2" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-.5a.5.5 0 0 0-.5.5v.217l6.5 3.9 6.5-3.9V4a.5.5 0 0 0-.5-.5H2Zm12.5 1.775-4.708 2.825L14.5 11.11V5.275Zm-.034 6.814-5.636-3.38L8 9.583l-.83-.874-5.636 3.38A.5.5 0 0 0 2 12.5h12a.5.5 0 0 0 .466-.411ZM1.5 11.11l4.708-3.01L1.5 5.275v5.836Z"/>
                         </svg>
                         <a href="mailto:chenky2022@gmail.com">chenky2022@gmail.com</a>
                     </p>
@@ -124,155 +454,279 @@
 
         <div class="row mt-4" id="publications">
             <div class="col">
-                <h2 class="mb-4"><b>Publications</b></h2>
+                <div class="pub-headline">
+                    <h2 class="mb-0"><b>Publications</b></h2>
+                    <small>
+                        Synced from <a href="https://scholar.google.com/citations?user=1bKT6toAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
+                        on March 10, 2026. All papers are downloaded locally with figure covers.
+                    </small>
+                </div>
 
-                <p class="text-muted mb-4">
-                    Synced from <a href="https://scholar.google.com/citations?user=1bKT6toAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
-                    on March 10, 2026.
-                </p>
+                <h3 class="pub-subtitle"><b>High Light · Important Works</b></h3>
+                <div class="pub-highlight-grid">
+                    <article class="pub-card" style="animation-delay:0.03s">
+                        <img src="assets/images/papers/nowcastnet.jpg" alt="NowcastNet highlight figure" class="pub-cover">
+                        <div class="pub-card-body">
+                            <p class="pub-kicker mb-0">Nature · 2023</p>
+                            <h4 class="pub-title">
+                                <a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Skilful nowcasting of extreme precipitation with NowcastNet</a>
+                            </h4>
+                            <p class="pub-authors">Y Zhang, M Long, K Chen, L Xing, R Jin, MI Jordan, J Wang</p>
+                            <p class="pub-desc">A generative nowcasting system that combines physical-evolution priors with data-driven learning for large-area, short-term extreme precipitation prediction.</p>
+                            <div class="meta-row">
+                                <span class="meta-pill meta-highlight">High Light</span>
+                                <span class="meta-pill">Citations: 548</span>
+                            </div>
+                        </div>
+                    </article>
 
-                <div class="publication-item p-3 mb-4 rounded">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h5 class="mb-2">
-                                <a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank" class="text-dark">
-                                    CogDPM: Diffusion Probabilistic Models via Cognitive Predictive Coding
-                                </a>
-                            </h5>
-                            <p class="mb-2">K Chen, X Guo, Y Zhang, J Wang, M Long</p>
-                            <p class="text-muted mb-2">International Conference on Machine Learning (ICML), 2024</p>
-                            <span class="badge badge-secondary">Citations (Google Scholar): 2</span>
+                    <article class="pub-card" style="animation-delay:0.08s">
+                        <img src="assets/images/papers/cogdpm.jpg" alt="CogDPM highlight figure" class="pub-cover">
+                        <div class="pub-card-body">
+                            <p class="pub-kicker mb-0">ICML · 2024</p>
+                            <h4 class="pub-title">
+                                <a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">CogDPM: Diffusion Probabilistic Models via Cognitive Predictive Coding</a>
+                            </h4>
+                            <p class="pub-authors">K Chen, X Guo, Y Zhang, J Wang, M Long</p>
+                            <p class="pub-desc">Bridges predictive-coding principles with diffusion models to improve precision-aware attention and spatiotemporal forecasting performance.</p>
+                            <div class="meta-row">
+                                <span class="meta-pill meta-highlight">High Light</span>
+                                <span class="meta-pill">Citations: 2</span>
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            <img src="assets/images/cogdpm.jpg" alt="CogDPM Architecture" class="img-fluid rounded" style="width: 100%; max-height: 200px; object-fit: contain;">
+                    </article>
+
+                    <article class="pub-card" style="animation-delay:0.12s">
+                        <img src="assets/images/papers/seed15-thinking.jpg" alt="Seed1.5-Thinking benchmark figure" class="pub-cover">
+                        <div class="pub-card-body">
+                            <p class="pub-kicker mb-0">arXiv · 2025</p>
+                            <h4 class="pub-title">
+                                <a href="https://arxiv.org/abs/2504.13914" target="_blank">Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning</a>
+                            </h4>
+                            <p class="pub-authors">ByteDance Seed, J Chen, T Fan, X Liu, ...</p>
+                            <p class="pub-desc">A reasoning model trained with reinforcement learning that strengthens think-before-answer behavior across math, coding, and tool-use benchmarks.</p>
+                            <div class="meta-row">
+                                <span class="meta-pill meta-highlight">High Light</span>
+                                <span class="meta-pill">Citations: 92</span>
+                            </div>
                         </div>
-                        <div class="col-md-7">
-                            <p class="text-justify" style="font-size: 0.95em;">
-                                This work introduces CogDPM, bridging diffusion models with cognitive science's Predictive Coding theory. 
-                                We develop a novel precision estimation method using diffusion models' hierarchical sampling capabilities, 
-                                enabling better attention allocation to signals with varying precision. The model demonstrates superior 
-                                performance in predicting rigid body and fluid motion, as well as real-world weather forecasting tasks 
-                                on U.K. precipitation and ERA surface wind datasets.
-                            </p>
+                    </article>
+
+                    <article class="pub-card" style="animation-delay:0.16s">
+                        <img src="assets/images/papers/xbench.jpg" alt="xbench benchmark framework figure" class="pub-cover">
+                        <div class="pub-card-body">
+                            <p class="pub-kicker mb-0">arXiv · 2025</p>
+                            <h4 class="pub-title">
+                                <a href="https://arxiv.org/abs/2506.13651" target="_blank">xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations</a>
+                            </h4>
+                            <p class="pub-authors">K Chen, Y Ren, Y Liu, X Hu, H Tian, ...</p>
+                            <p class="pub-desc">Introduces a profession-aligned evaluation suite for measuring real-world productivity scaling and market readiness of AI agents.</p>
+                            <div class="meta-row">
+                                <span class="meta-pill meta-highlight">High Light</span>
+                                <span class="meta-pill">Citations: 61</span>
+                            </div>
                         </div>
+                    </article>
+                </div>
+
+                <h3 class="pub-subtitle mt-5"><b>Timeline · Newest to Earliest</b></h3>
+                <div class="timeline-wrap">
+                    <div class="timeline-row" style="animation-delay:0.02s">
+                        <div class="timeline-year">2026</div>
+                        <article class="timeline-item">
+                            <div class="timeline-head">
+                                <div>
+                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2601.06521" target="_blank">BabyVision: Visual Reasoning Beyond Language</a></h4>
+                                    <p class="timeline-venue mb-0">arXiv:2601.06521</p>
+                                </div>
+                                <span class="meta-pill">Citations: 4</span>
+                            </div>
+                            <div class="timeline-main">
+                                <img src="assets/images/papers/babyvision.jpg" alt="BabyVision figure">
+                                <div>
+                                    <p class="timeline-desc">Studies visual reasoning capability beyond language shortcuts and benchmarks multimodal models against human developmental priors.</p>
+                                    <p class="timeline-links mb-0">
+                                        <a href="https://arxiv.org/abs/2601.06521" target="_blank">arXiv</a>
+                                        <a href="assets/papers/babyvision.pdf" target="_blank">Local PDF</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                </div>
 
-                <div class="publication-item p-3 mb-4 rounded">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h5 class="mb-2">
-                                <a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank" class="text-dark">
-                                    Skilful nowcasting of extreme precipitation with NowcastNet
-                                </a>
-                            </h5>
-                            <p class="mb-2">Y Zhang, M Long, K Chen, L Xing, R Jin, MI Jordan, J Wang</p>
-                            <p class="text-muted mb-2">Nature 619 (7970), 526-532, 2023</p>
-                            <span class="badge badge-secondary">Citations (Google Scholar): 548</span>
-                        </div>
-                        <div class="col-md-5">
-                            <img src="assets/images/nowcastnet.jpg" alt="NowcastNet Architecture" class="img-fluid rounded" style="width: 100%; max-height: 200px; object-fit: contain;">
-                        </div>
-                        <div class="col-md-7">
-                            <p class="text-justify mt-2" style="font-size: 0.95em;">
-                                NowcastNet is a groundbreaking model that combines physical-evolution schemes with conditional-learning methods 
-                                for extreme precipitation forecasting. The model achieves unprecedented accuracy in predicting precipitation 
-                                patterns over large regions (2,048 km × 2,048 km) with up to 3-hour lead times. Evaluated by 62 professional 
-                                meteorologists, NowcastNet ranked first in 71% of cases, particularly excelling in predicting extreme 
-                                precipitation events with complex advective or convective processes.
-                            </p>
-                        </div>
+                    <div class="timeline-row" style="animation-delay:0.04s">
+                        <div class="timeline-year">&nbsp;</div>
+                        <article class="timeline-item">
+                            <div class="timeline-head">
+                                <div>
+                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2601.20613" target="_blank">AgentIF-OneDay: A Task-level Instruction-Following Benchmark for General AI Agents in Daily Scenarios</a></h4>
+                                    <p class="timeline-venue mb-0">arXiv:2601.20613</p>
+                                </div>
+                                <span class="meta-pill">Citations: 0</span>
+                            </div>
+                            <div class="timeline-main">
+                                <img src="assets/images/papers/agentif-oneday.jpg" alt="AgentIF-OneDay benchmark figure">
+                                <div>
+                                    <p class="timeline-desc">Builds a day-scale benchmark for long-horizon task execution, testing instruction following, tool usage, and reliability in realistic daily workflows.</p>
+                                    <p class="timeline-links mb-0">
+                                        <a href="https://arxiv.org/abs/2601.20613" target="_blank">arXiv</a>
+                                        <a href="assets/papers/agentif-oneday.pdf" target="_blank">Local PDF</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                </div>
 
-                <div class="publication-item p-3 mb-3 rounded">
-                    <h5 class="mb-2">
-                        <a href="https://arxiv.org/abs/2504.13914" target="_blank" class="text-dark">
-                            Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning
-                        </a>
-                    </h5>
-                    <p class="mb-2">ByteDance Seed, J Chen, T Fan, X Liu, ...</p>
-                    <p class="text-muted mb-2">arXiv preprint arXiv:2504.13914, 2025</p>
-                    <span class="badge badge-secondary">Citations (Google Scholar): 92</span>
-                    <p class="text-justify mt-2 mb-0" style="font-size: 0.95em;">
-                        This paper proposes a reasoning model trained with reinforcement learning to "think before answering",
-                        improving performance on math, coding, and tool-use benchmarks while maintaining strong general capability.
-                    </p>
-                </div>
+                    <div class="timeline-row" style="animation-delay:0.06s">
+                        <div class="timeline-year">2025</div>
+                        <article class="timeline-item highlight">
+                            <div class="timeline-head">
+                                <div>
+                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2504.13914" target="_blank">Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning</a></h4>
+                                    <p class="timeline-venue mb-0">arXiv:2504.13914</p>
+                                </div>
+                                <div class="meta-row">
+                                    <span class="meta-pill meta-highlight">High Light</span>
+                                    <span class="meta-pill">Citations: 92</span>
+                                </div>
+                            </div>
+                            <div class="timeline-main">
+                                <img src="assets/images/papers/seed15-thinking.jpg" alt="Seed1.5-Thinking result figure">
+                                <div>
+                                    <p class="timeline-desc">Proposes a reinforcement learning pipeline for reasoning-heavy LLM behavior with major gains on hard reasoning and coding evaluations.</p>
+                                    <p class="timeline-links mb-0">
+                                        <a href="https://arxiv.org/abs/2504.13914" target="_blank">arXiv</a>
+                                        <a href="assets/papers/seed15-thinking.pdf" target="_blank">Local PDF</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-                <div class="publication-item p-3 mb-3 rounded">
-                    <h5 class="mb-2">
-                        <a href="https://arxiv.org/abs/2506.13651" target="_blank" class="text-dark">
-                            xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations
-                        </a>
-                    </h5>
-                    <p class="mb-2">K Chen, Y Ren, Y Liu, X Hu, H Tian, ...</p>
-                    <p class="text-muted mb-2">arXiv preprint arXiv:2506.13651, 2025</p>
-                    <span class="badge badge-secondary">Citations (Google Scholar): 61</span>
-                    <p class="text-justify mt-2 mb-0" style="font-size: 0.95em;">
-                        xbench introduces a dynamic benchmark suite aligned with real professional workflows,
-                        enabling measurement of how fast AI agents gain practical productivity rather than only benchmark accuracy.
-                    </p>
-                </div>
+                    <div class="timeline-row" style="animation-delay:0.08s">
+                        <div class="timeline-year">&nbsp;</div>
+                        <article class="timeline-item highlight">
+                            <div class="timeline-head">
+                                <div>
+                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2506.13651" target="_blank">xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations</a></h4>
+                                    <p class="timeline-venue mb-0">arXiv:2506.13651</p>
+                                </div>
+                                <div class="meta-row">
+                                    <span class="meta-pill meta-highlight">High Light</span>
+                                    <span class="meta-pill">Citations: 61</span>
+                                </div>
+                            </div>
+                            <div class="timeline-main">
+                                <img src="assets/images/papers/xbench.jpg" alt="xbench task framework figure">
+                                <div>
+                                    <p class="timeline-desc">Defines domain-agent evaluations tied to real professional tasks and introduces a practical path for measuring agent productivity scaling.</p>
+                                    <p class="timeline-links mb-0">
+                                        <a href="https://arxiv.org/abs/2506.13651" target="_blank">arXiv</a>
+                                        <a href="assets/papers/xbench.pdf" target="_blank">Local PDF</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-                <div class="publication-item p-3 mb-3 rounded">
-                    <h5 class="mb-2">
-                        <a href="https://arxiv.org/abs/2502.17262" target="_blank" class="text-dark">
-                            Unveiling Downstream Performance Scaling of LLMs: A Clustering-Based Perspective
-                        </a>
-                    </h5>
-                    <p class="mb-2">C Xu, K Chen, X Li, K Shen, C Li</p>
-                    <p class="text-muted mb-2">arXiv preprint arXiv:2502.17262, 2025</p>
-                    <span class="badge badge-secondary">Citations (Google Scholar): 5</span>
-                    <p class="text-justify mt-2 mb-0" style="font-size: 0.95em;">
-                        The work studies how downstream performance scales with model capability by clustering tasks,
-                        offering a practical method to estimate task-level gains during pre-training and model selection.
-                    </p>
-                </div>
+                    <div class="timeline-row" style="animation-delay:0.1s">
+                        <div class="timeline-year">&nbsp;</div>
+                        <article class="timeline-item">
+                            <div class="timeline-head">
+                                <div>
+                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2511.11238" target="_blank">Virtual Width Networks</a></h4>
+                                    <p class="timeline-venue mb-0">arXiv:2511.11238</p>
+                                </div>
+                                <span class="meta-pill">Citations: 0</span>
+                            </div>
+                            <div class="timeline-main">
+                                <img src="assets/images/papers/virtual-width-networks.jpg" alt="Virtual Width Networks architecture">
+                                <div>
+                                    <p class="timeline-desc">Introduces a virtual-width design that increases effective representational capacity while keeping backbone hidden size fixed and compute efficient.</p>
+                                    <p class="timeline-links mb-0">
+                                        <a href="https://arxiv.org/abs/2511.11238" target="_blank">arXiv</a>
+                                        <a href="assets/papers/virtual-width-networks.pdf" target="_blank">Local PDF</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-                <div class="publication-item p-3 mb-3 rounded">
-                    <h5 class="mb-2">
-                        <a href="https://arxiv.org/abs/2511.11238" target="_blank" class="text-dark">
-                            Virtual Width Networks
-                        </a>
-                    </h5>
-                    <p class="mb-2">B Li, B Wu, B Ma, B Xiao, ...</p>
-                    <p class="text-muted mb-2">arXiv preprint arXiv:2511.11238, 2025</p>
-                    <span class="badge badge-secondary">Citations (Google Scholar): 0</span>
-                    <p class="text-justify mt-2 mb-0" style="font-size: 0.95em;">
-                        Virtual Width Networks decouple representational width from quadratic compute growth,
-                        giving models wider expressive capacity with substantially better training and inference efficiency.
-                    </p>
-                </div>
+                    <div class="timeline-row" style="animation-delay:0.12s">
+                        <div class="timeline-year">&nbsp;</div>
+                        <article class="timeline-item">
+                            <div class="timeline-head">
+                                <div>
+                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2502.17262" target="_blank">Unveiling Downstream Performance Scaling of LLMs: A Clustering-Based Perspective</a></h4>
+                                    <p class="timeline-venue mb-0">arXiv:2502.17262</p>
+                                </div>
+                                <span class="meta-pill">Citations: 5</span>
+                            </div>
+                            <div class="timeline-main">
+                                <img src="assets/images/papers/llm-scaling-clustering.jpg" alt="LLM downstream scaling clustering figure">
+                                <div>
+                                    <p class="timeline-desc">Presents a clustering-based way to estimate downstream scaling behaviors during pre-training, helping model planning and resource allocation.</p>
+                                    <p class="timeline-links mb-0">
+                                        <a href="https://arxiv.org/abs/2502.17262" target="_blank">arXiv</a>
+                                        <a href="assets/papers/llm-scaling-clustering.pdf" target="_blank">Local PDF</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-                <div class="publication-item p-3 mb-3 rounded">
-                    <h5 class="mb-2">
-                        <a href="https://arxiv.org/abs/2601.06521" target="_blank" class="text-dark">
-                            BabyVision: Visual Reasoning Beyond Language
-                        </a>
-                    </h5>
-                    <p class="mb-2">L Chen, W Xie, Y Liang, H He, ...</p>
-                    <p class="text-muted mb-2">arXiv preprint arXiv:2601.06521, 2026</p>
-                    <span class="badge badge-secondary">Citations (Google Scholar): 4</span>
-                    <p class="text-justify mt-2 mb-0" style="font-size: 0.95em;">
-                        BabyVision focuses on visual reasoning that is less dependent on language shortcuts,
-                        highlighting core perception and compositional reasoning challenges for multimodal models.
-                    </p>
-                </div>
+                    <div class="timeline-row" style="animation-delay:0.14s">
+                        <div class="timeline-year">2024</div>
+                        <article class="timeline-item highlight">
+                            <div class="timeline-head">
+                                <div>
+                                    <h4 class="timeline-title"><a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">CogDPM: Diffusion Probabilistic Models via Cognitive Predictive Coding</a></h4>
+                                    <p class="timeline-venue mb-0">ICML 2024</p>
+                                </div>
+                                <div class="meta-row">
+                                    <span class="meta-pill meta-highlight">High Light</span>
+                                    <span class="meta-pill">Citations: 2</span>
+                                </div>
+                            </div>
+                            <div class="timeline-main">
+                                <img src="assets/images/papers/cogdpm.jpg" alt="CogDPM diagram">
+                                <div>
+                                    <p class="timeline-desc">Combines cognitive predictive coding and diffusion probabilistic modeling for better uncertainty-aware forecasting in dynamics and weather tasks.</p>
+                                    <p class="timeline-links mb-0">
+                                        <a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">PMLR</a>
+                                        <a href="https://arxiv.org/abs/2405.02384" target="_blank">arXiv</a>
+                                        <a href="assets/papers/cogdpm.pdf" target="_blank">Local PDF</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-                <div class="publication-item p-3 mb-3 rounded">
-                    <h5 class="mb-2">
-                        <a href="https://arxiv.org/abs/2601.20613" target="_blank" class="text-dark">
-                            AgentIF-OneDay: A Task-level Instruction-Following Benchmark for General AI Agents in Daily Scenarios
-                        </a>
-                    </h5>
-                    <p class="mb-2">K Chen, Q Wu, T Hou, T Tang, X Hu, ...</p>
-                    <p class="text-muted mb-2">arXiv preprint arXiv:2601.20613, 2026</p>
-                    <span class="badge badge-secondary">Citations (Google Scholar): 0</span>
-                    <p class="text-justify mt-2 mb-0" style="font-size: 0.95em;">
-                        AgentIF-OneDay benchmarks general agents on day-scale daily tasks with explicit instruction-following requirements,
-                        targeting long-horizon planning, tool usage, and reliable execution in realistic environments.
-                    </p>
+                    <div class="timeline-row" style="animation-delay:0.16s">
+                        <div class="timeline-year">2023</div>
+                        <article class="timeline-item highlight">
+                            <div class="timeline-head">
+                                <div>
+                                    <h4 class="timeline-title"><a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Skilful nowcasting of extreme precipitation with NowcastNet</a></h4>
+                                    <p class="timeline-venue mb-0">Nature 619 (7970), 526-532</p>
+                                </div>
+                                <div class="meta-row">
+                                    <span class="meta-pill meta-highlight">High Light</span>
+                                    <span class="meta-pill">Citations: 548</span>
+                                </div>
+                            </div>
+                            <div class="timeline-main">
+                                <img src="assets/images/papers/nowcastnet.jpg" alt="NowcastNet architecture">
+                                <div>
+                                    <p class="timeline-desc">A milestone weather nowcasting model validated with meteorologist studies and strong gains on extreme precipitation events.</p>
+                                    <p class="timeline-links mb-0">
+                                        <a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Nature</a>
+                                        <a href="assets/papers/nowcastnet.pdf" target="_blank">Local PDF</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </div>
