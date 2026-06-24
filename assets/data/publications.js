@@ -10,7 +10,7 @@ const publications = [
         topics: ["AI4Weather", "Generative Modeling"],
         image: "assets/images/papers/nowcastnet.jpg",
         paperURL: "assets/papers/nowcastnet.pdf",
-        note: "Google Scholar citations: 548 (Mar 2026)"
+        note: "Google Scholar citations: 673 (Jun 2026)"
     },
     {
         title: '<a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">CogDPM: Diffusion Probabilistic Models via Cognitive Predictive Coding</a>',
@@ -23,7 +23,7 @@ const publications = [
         topics: ["Diffusion", "AI4Weather"],
         image: "assets/images/papers/cogdpm.jpg",
         paperURL: "assets/papers/cogdpm.pdf",
-        note: "Google Scholar citations: 2 (Mar 2026)"
+        note: "Google Scholar citations: 3 (Jun 2026)"
     },
     {
         title: '<a href="https://arxiv.org/abs/2504.13914" target="_blank">Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning</a>',
@@ -36,7 +36,7 @@ const publications = [
         topics: ["LLM", "Reasoning", "RL"],
         image: "assets/images/papers/seed15-thinking.jpg",
         paperURL: "assets/papers/seed15-thinking.pdf",
-        note: "Google Scholar citations: 92 (Mar 2026)"
+        note: "Google Scholar citations: 111 (Jun 2026)"
     },
     {
         title: '<a href="https://arxiv.org/abs/2506.13651" target="_blank">xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations</a>',
@@ -49,7 +49,20 @@ const publications = [
         topics: ["Agent", "Benchmark", "Scaling Laws"],
         image: "assets/images/papers/xbench.jpg",
         paperURL: "assets/papers/xbench.pdf",
-        note: "Google Scholar citations: 61 (Mar 2026)"
+        note: "Google Scholar citations: 89 (Jun 2026)"
+    },
+    {
+        title: '<a href="https://arxiv.org/abs/2603.20633" target="_blank">Seed1.8 Model Card: Towards Generalized Real-World Agency</a>',
+        authors: ["ByteDance Seed"],
+        venue: "arXiv preprint arXiv:2603.20633",
+        abbr: "arXiv",
+        year: "2026",
+        highlight: "High Light",
+        highlightRank: 5,
+        topics: ["Agent", "LLM", "Benchmark"],
+        image: "assets/images/papers/seed18-model-card.jpg",
+        paperURL: "assets/papers/seed18-model-card.pdf",
+        note: "Google Scholar citations: 36 (Jun 2026)"
     },
     {
         title: '<a href="https://arxiv.org/abs/2601.06521" target="_blank">BabyVision: Visual Reasoning Beyond Language</a>',
@@ -60,7 +73,18 @@ const publications = [
         topics: ["MLLM", "Visual Reasoning"],
         image: "assets/images/papers/babyvision.jpg",
         paperURL: "assets/papers/babyvision.pdf",
-        note: "Google Scholar citations: 4 (Mar 2026)"
+        note: "Google Scholar citations: 17 (Jun 2026)"
+    },
+    {
+        title: '<a href="https://arxiv.org/abs/2603.07980" target="_blank">$OneMillion-Bench: How Far are Language Agents from Human Experts?</a>',
+        authors: ["Qihang Yang", "Yikai Liu", "Jie Li", "Junjie Bai", "Hao Chen", "Kaiyuan Chen", "et al"],
+        venue: "arXiv preprint arXiv:2603.07980",
+        abbr: "arXiv",
+        year: "2026",
+        topics: ["Agent", "Benchmark"],
+        image: "assets/images/papers/onemillion-bench.jpg",
+        paperURL: "assets/papers/onemillion-bench.pdf",
+        note: "Google Scholar citations: 5 (Jun 2026)"
     },
     {
         title: '<a href="https://arxiv.org/abs/2601.20613" target="_blank">AgentIF-OneDay: A Task-level Instruction-Following Benchmark for General AI Agents in Daily Scenarios</a>',
@@ -71,7 +95,7 @@ const publications = [
         topics: ["Agent", "Benchmark"],
         image: "assets/images/papers/agentif-oneday.jpg",
         paperURL: "assets/papers/agentif-oneday.pdf",
-        note: "Google Scholar citations: 0 (Mar 2026)"
+        note: "Google Scholar citations: 1 (Jun 2026)"
     },
     {
         title: '<a href="https://arxiv.org/abs/2511.11238" target="_blank">Virtual Width Networks</a>',
@@ -82,7 +106,7 @@ const publications = [
         topics: ["LLM", "Scaling Laws"],
         image: "assets/images/papers/virtual-width-networks.jpg",
         paperURL: "assets/papers/virtual-width-networks.pdf",
-        note: "Google Scholar citations: 0 (Mar 2026)"
+        note: "Google Scholar citations: 2 (Jun 2026)"
     },
     {
         title: '<a href="https://arxiv.org/abs/2502.17262" target="_blank">Unveiling Downstream Performance Scaling of LLMs: A Clustering-Based Perspective</a>',
@@ -93,7 +117,7 @@ const publications = [
         topics: ["LLM", "Scaling Laws"],
         image: "assets/images/papers/llm-scaling-clustering.jpg",
         paperURL: "assets/papers/llm-scaling-clustering.pdf",
-        note: "Google Scholar citations: 5 (Mar 2026)"
+        note: "Google Scholar citations: 6 (Jun 2026)"
     }
 ];
 

@@ -1,61 +1,273 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Kaiyuan Chen</title>
+    <title>Kaiyuan Chen | AI for Weather, Video Generation, Agents, and LLMs</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="Kaiyuan Chen, Chen Kaiyuan, ByteDance, AI4Weather">
-    <meta name="description" content="Kaiyuan Chen's home page">
+    <meta name="keywords" content="Kaiyuan Chen, Chen Kaiyuan, ByteDance, AI4Weather, Video Generation, LLM, Agent, Tsinghua University">
+    <meta name="description" content="Kaiyuan Chen's personal academic homepage, featuring research on AI for weather forecasting, video generation, agents, diffusion models, and large language models.">
+    <meta name="author" content="Kaiyuan Chen">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f4c81">
+    <link rel="canonical" href="https://chenky9106.github.io/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://chenky9106.github.io/sitemap.xml">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Kaiyuan Chen | AI for Weather, Video Generation, Agents, and LLMs">
+    <meta property="og:description" content="Personal academic homepage of Kaiyuan Chen with publications, research highlights, and downloadable papers.">
+    <meta property="og:url" content="https://chenky9106.github.io/">
+    <meta property="og:site_name" content="Kaiyuan Chen">
+    <meta property="og:image" content="https://chenky9106.github.io/assets/images/profile.jpg">
+    <meta property="og:image:alt" content="Portrait of Kaiyuan Chen">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kaiyuan Chen | AI for Weather, Video Generation, Agents, and LLMs">
+    <meta name="twitter:description" content="Personal academic homepage of Kaiyuan Chen with publications, research highlights, and downloadable papers.">
+    <meta name="twitter:image" content="https://chenky9106.github.io/assets/images/profile.jpg">
     <link href="vender/bootstrap.min.css" rel="stylesheet">
     <link href="vender/jemdoc.css" rel="stylesheet">
-    <script src="vender/vue.min.js"></script>
-    <link href="assets/site/favicon.ico?v=20260311" rel="icon" type="image/x-icon" />
+    <link href="assets/site/favicon.ico?v=20260624" rel="icon" type="image/x-icon" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "https://chenky9106.github.io/#website",
+                    "url": "https://chenky9106.github.io/",
+                    "name": "Kaiyuan Chen"
+                },
+                {
+                    "@type": "Person",
+                    "@id": "https://chenky9106.github.io/#person",
+                    "name": "Kaiyuan Chen",
+                    "alternateName": "陈凯源",
+                    "url": "https://chenky9106.github.io/",
+                    "image": "https://chenky9106.github.io/assets/images/profile.jpg",
+                    "affiliation": [
+                        {
+                            "@type": "Organization",
+                            "name": "ByteDance"
+                        },
+                        {
+                            "@type": "CollegeOrUniversity",
+                            "name": "Tsinghua University"
+                        }
+                    ],
+                    "alumniOf": {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Tsinghua University"
+                    },
+                    "sameAs": [
+                        "https://scholar.google.com/citations?user=1bKT6toAAAAJ&hl=en",
+                        "https://github.com/chenky9106"
+                    ],
+                    "knowsAbout": [
+                        "AI for Weather Forecasting",
+                        "Video Generation",
+                        "Diffusion Models",
+                        "AI Agents",
+                        "Large Language Models",
+                        "Scaling Laws"
+                    ]
+                },
+                {
+                    "@type": "ProfilePage",
+                    "@id": "https://chenky9106.github.io/#webpage",
+                    "url": "https://chenky9106.github.io/",
+                    "name": "Kaiyuan Chen | AI for Weather, Video Generation, Agents, and LLMs",
+                    "description": "Personal academic homepage of Kaiyuan Chen with publications, research highlights, and downloadable papers.",
+                    "isPartOf": {
+                        "@id": "https://chenky9106.github.io/#website"
+                    },
+                    "about": {
+                        "@id": "https://chenky9106.github.io/#person"
+                    },
+                    "primaryImageOfPage": {
+                        "@type": "ImageObject",
+                        "url": "https://chenky9106.github.io/assets/images/profile.jpg"
+                    }
+                }
+            ]
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap');
 
         :root {
             --bg: #f4f8fb;
+            --bg-secondary: #f9fcff;
             --ink: #0f172a;
             --muted: #516073;
             --primary: #0f4c81;
+            --primary-light: #1a6bb5;
             --accent: #d97706;
+            --accent-light: #f59e0b;
             --card: #ffffff;
             --line: #d7e3ef;
+            --shadow-sm: 0 4px 12px rgba(15, 76, 129, 0.06);
+            --shadow-md: 0 12px 26px rgba(15, 76, 129, 0.08);
+            --shadow-lg: 0 20px 40px rgba(15, 76, 129, 0.12);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 18px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0b1220;
+            --bg-secondary: #0f172a;
+            --ink: #e2e8f0;
+            --muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-light: #60a5fa;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --card: #1e293b;
+            --line: #334155;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 26px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            scroll-margin-top: 80px;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Manrope', 'Helvetica Neue', sans-serif;
             color: var(--ink);
-            background:
+            background: var(--bg);
+            background-image:
                 radial-gradient(circle at 12% -8%, rgba(15, 76, 129, 0.14), transparent 36%),
                 radial-gradient(circle at 90% 0%, rgba(217, 119, 6, 0.12), transparent 34%),
-                linear-gradient(180deg, #f9fcff 0%, var(--bg) 100%);
+                linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg) 100%);
+            min-height: 100vh;
+            transition: var(--transition);
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
+        [data-theme="dark"] body {
+            background-image:
+                radial-gradient(circle at 12% -8%, rgba(59, 130, 246, 0.15), transparent 36%),
+                radial-gradient(circle at 90% 0%, rgba(245, 158, 11, 0.1), transparent 34%),
+                linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg) 100%);
+        }
+
+        h1, h2, h3, h4, h5 {
             font-family: 'Source Serif 4', Georgia, serif;
-            color: #0f2238;
+            color: var(--ink);
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
+        h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem !important;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* Navbar */
         .navbar {
-            backdrop-filter: blur(8px);
-            background: rgba(255, 255, 255, 0.84) !important;
-            border-bottom: 1px solid rgba(15, 76, 129, 0.14);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.82) !important;
+            border-bottom: 1px solid rgba(15, 76, 129, 0.12);
+            box-shadow: 0 1px 3px rgba(15, 76, 129, 0.05);
+            transition: var(--transition);
+            padding: 0.6rem 0;
         }
 
-        .badge-custom {
-            background-color: #e9eef6;
-            color: #29435c;
-            padding: 0.28em 0.52em;
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 23, 42, 0.85) !important;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(15, 76, 129, 0.08);
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            color: var(--muted) !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            margin: 0 0.15rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary) !important;
+            background: rgba(15, 76, 129, 0.06);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary) !important;
+            background: rgba(15, 76, 129, 0.08);
+        }
+
+        [data-theme="dark"] .navbar-nav .nav-link:hover,
+        [data-theme="dark"] .navbar-nav .nav-link.active {
+            background: rgba(59, 130, 246, 0.12);
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--line);
             border-radius: 999px;
-            font-size: 0.82em;
-            border: 1px solid #cfdeee;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--muted);
+            transition: var(--transition);
+            margin-left: 0.5rem;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(15, 76, 129, 0.06);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Profile section */
+        .profile-section {
+            padding: 2rem 0 1rem;
+        }
+
+        .profile-img-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(8px);
         }
 
         .profile-img {
@@ -64,21 +276,189 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
-            border: 4px solid #ffffff;
-            box-shadow: 0 14px 26px rgba(13, 35, 58, 0.12);
+            border: 4px solid var(--card);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
         }
 
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .name-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        [data-theme="dark"] .name-title {
+            background: linear-gradient(135deg, var(--primary-light), #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .affiliation {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .affiliation svg {
+            color: var(--primary);
+        }
+
+        .badge-custom {
+            background-color: var(--card);
+            color: var(--primary);
+            padding: 0.35em 0.7em;
+            border-radius: 999px;
+            font-size: 0.82em;
+            border: 1px solid var(--line);
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            margin-bottom: 0.35rem;
+        }
+
+        .badge-custom:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-light);
+        }
+
+        .contact-info a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .contact-info a:hover::after {
+            width: 100%;
+        }
+
+        .contact-info svg {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Stats cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Education */
         .education-item {
-            margin-bottom: 15px;
-            padding: 10px 0;
-            border-bottom: 1px dashed #d5e0eb;
+            margin-bottom: 1rem;
+            padding: 1.1rem 1.2rem;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+        }
+
+        .education-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .education-item h5 {
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .education-item p {
+            margin-bottom: 0.2rem;
         }
 
         .education-date {
-            color: #5e6d80;
-            font-size: 0.9em;
+            color: var(--muted);
+            font-size: 0.88em;
+            font-weight: 500;
         }
 
+        /* Publications */
         .pub-headline {
             display: flex;
             justify-content: space-between;
@@ -94,10 +474,22 @@
         }
 
         .pub-subtitle {
-            margin-top: 1.35rem;
-            margin-bottom: 0.9rem;
-            color: #163a5f;
-            font-size: 1.22rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .pub-subtitle::before {
+            content: '';
+            width: 6px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            border-radius: 3px;
         }
 
         .pub-highlight-grid {
@@ -109,92 +501,125 @@
         .pub-card {
             background: var(--card);
             border: 1px solid var(--line);
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 12px 26px rgba(15, 76, 129, 0.08);
-            animation: riseIn 0.7s ease both;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .pub-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .pub-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 30px rgba(15, 76, 129, 0.14);
-            transition: all 0.25s ease;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
         }
 
         .pub-cover {
             width: 100%;
             aspect-ratio: 16 / 10;
             object-fit: cover;
-            border-bottom: 1px solid #e4edf5;
-            background: #f2f6fb;
+            border-bottom: 1px solid var(--line);
+            background: var(--bg-secondary);
+            transition: transform 0.5s ease;
+        }
+
+        .pub-card:hover .pub-cover {
+            transform: scale(1.03);
+        }
+
+        .pub-cover-wrapper {
+            overflow: hidden;
+            position: relative;
         }
 
         .pub-card-body {
-            padding: 0.95rem 1rem 1rem;
+            padding: 1rem 1.1rem 1.1rem;
         }
 
         .pub-kicker {
-            color: #3b5f7f;
-            font-size: 0.85rem;
+            color: var(--primary);
+            font-size: 0.82rem;
             font-weight: 700;
-            letter-spacing: 0.02em;
-            margin-bottom: 0.4rem;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.45rem;
+            text-transform: uppercase;
         }
 
         .pub-title {
-            font-size: 1.03rem;
-            margin-bottom: 0.48rem;
-            line-height: 1.3;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
+            font-weight: 700;
         }
 
         .pub-title a {
-            color: #102a43;
+            color: var(--ink);
             text-decoration: none;
+            transition: var(--transition);
         }
 
         .pub-title a:hover {
-            color: #0f4c81;
-            text-decoration: underline;
+            color: var(--primary);
         }
 
         .pub-authors {
-            color: #506277;
-            font-size: 0.89rem;
-            margin-bottom: 0.65rem;
+            color: var(--muted);
+            font-size: 0.87rem;
+            margin-bottom: 0.7rem;
+            line-height: 1.4;
         }
 
         .pub-desc {
-            color: #2f4359;
-            font-size: 0.92rem;
-            line-height: 1.5;
-            margin-bottom: 0.75rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin-bottom: 0.85rem;
         }
 
         .meta-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.45rem;
+            gap: 0.5rem;
         }
 
         .meta-pill {
             font-size: 0.78rem;
             border-radius: 999px;
-            padding: 0.2rem 0.55rem;
-            border: 1px solid #d8e4ef;
-            background: #f4f9ff;
-            color: #20476a;
+            padding: 0.25rem 0.65rem;
+            border: 1px solid var(--line);
+            background: var(--bg-secondary);
+            color: var(--primary);
             font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .meta-pill:hover {
+            border-color: var(--primary);
         }
 
         .meta-highlight {
-            background: #fff4e8;
-            border-color: #f5cf9f;
-            color: #8a4a03;
+            background: linear-gradient(135deg, #fff7ed, #ffedd5);
+            border-color: #fed7aa;
+            color: #92400e;
+            font-weight: 700;
         }
 
+        [data-theme="dark"] .meta-highlight {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.1));
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #fbbf24;
+        }
+
+        /* Timeline */
         .timeline-wrap {
             position: relative;
-            margin-top: 0.8rem;
+            margin-top: 1rem;
             padding-left: 0.2rem;
         }
 
@@ -205,7 +630,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, #d2e3f2 0%, #9ec0df 60%, #d2e3f2 100%);
+            background: linear-gradient(180deg, var(--line) 0%, var(--primary) 30%, var(--accent) 70%, var(--line) 100%);
         }
 
         .timeline-row {
@@ -213,26 +638,40 @@
             display: grid;
             grid-template-columns: 68px 1fr;
             gap: 1rem;
-            margin-bottom: 1.3rem;
-            animation: riseIn 0.7s ease both;
+            margin-bottom: 1.4rem;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .timeline-row.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .timeline-year {
-            color: #24496d;
+            color: var(--primary);
             font-weight: 800;
-            font-size: 1rem;
+            font-size: 1.05rem;
             align-self: start;
             padding-top: 0.6rem;
+            font-family: 'Source Serif 4', Georgia, serif;
         }
 
         .timeline-item {
             position: relative;
-            background: #ffffff;
-            border: 1px solid #d7e3ef;
-            border-radius: 14px;
-            padding: 0.85rem;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 1rem;
             margin-left: 0.5rem;
-            box-shadow: 0 8px 20px rgba(16, 42, 67, 0.07);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(3px);
         }
 
         .timeline-item::before {
@@ -240,16 +679,28 @@
             position: absolute;
             left: -11px;
             top: 24px;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 999px;
-            background: #6b9bc9;
-            border: 2px solid #f9fcff;
-            box-shadow: 0 0 0 2px #9ec0df;
+            background: var(--primary);
+            border: 2px solid var(--bg);
+            box-shadow: 0 0 0 2px var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-light);
+            transform: scale(1.2);
         }
 
         .timeline-item.highlight {
             border-left: 4px solid var(--accent);
+            background: linear-gradient(135deg, var(--card), rgba(217, 119, 6, 0.03));
+        }
+
+        [data-theme="dark"] .timeline-item.highlight {
+            background: linear-gradient(135deg, var(--card), rgba(245, 158, 11, 0.06));
         }
 
         .timeline-head {
@@ -262,30 +713,31 @@
 
         .timeline-title {
             font-size: 1rem;
-            margin-bottom: 0.2rem;
-            line-height: 1.35;
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+            font-weight: 700;
         }
 
         .timeline-title a {
-            color: #102a43;
+            color: var(--ink);
             text-decoration: none;
+            transition: var(--transition);
         }
 
         .timeline-title a:hover {
-            color: #0f4c81;
-            text-decoration: underline;
+            color: var(--primary);
         }
 
         .timeline-venue {
-            color: #536780;
+            color: var(--muted);
             font-size: 0.86rem;
         }
 
         .timeline-main {
-            margin-top: 0.7rem;
+            margin-top: 0.8rem;
             display: grid;
             grid-template-columns: 180px 1fr;
-            gap: 0.8rem;
+            gap: 0.9rem;
             align-items: start;
         }
 
@@ -293,47 +745,180 @@
             width: 100%;
             aspect-ratio: 16 / 10;
             object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid #dce8f3;
-            background: #f5f8fc;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--line);
+            background: var(--bg-secondary);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-main img {
+            transform: scale(1.02);
         }
 
         .timeline-desc {
-            margin-bottom: 0.45rem;
-            color: #2e435c;
+            margin-bottom: 0.5rem;
+            color: var(--muted);
             font-size: 0.9rem;
-            line-height: 1.45;
+            line-height: 1.5;
         }
 
         .timeline-links a {
             display: inline-block;
-            margin-right: 0.65rem;
-            color: #0f4c81;
+            margin-right: 0.7rem;
+            color: var(--primary);
             font-size: 0.84rem;
             font-weight: 700;
             text-decoration: none;
+            position: relative;
+            transition: var(--transition);
         }
 
         .timeline-links a:hover {
-            color: #0a365b;
+            color: var(--primary-light);
+        }
+
+        .timeline-links a::after {
+            content: '→';
+            margin-left: 2px;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .timeline-links a:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* Research Interests */
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .research-tags li {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 0.7rem 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: var(--transition);
+            cursor: default;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .research-tags li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+
+        .research-tags li:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--line);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .site-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .site-footer a:hover {
             text-decoration: underline;
         }
 
-        @keyframes riseIn {
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            z-index: 1030;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-top svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Section spacing */
+        section {
+            padding: 1rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(16px);
+                transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
+        .animate-in {
+            animation: fadeInUp 0.7s ease forwards;
+        }
+
+        /* Responsive */
         @media (max-width: 991px) {
             .pub-highlight-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .name-title {
+                font-size: 2rem;
             }
         }
 
@@ -345,18 +930,18 @@
             .timeline-row {
                 grid-template-columns: 1fr;
                 gap: 0.4rem;
-                margin-bottom: 1rem;
+                margin-bottom: 1.1rem;
             }
 
             .timeline-year {
                 padding-left: 0.7rem;
                 padding-top: 0;
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
 
             .timeline-item {
                 margin-left: 0;
-                padding: 0.75rem;
+                padding: 0.9rem;
             }
 
             .timeline-item::before {
@@ -367,6 +952,45 @@
             .timeline-main {
                 grid-template-columns: 1fr;
             }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.6rem;
+            }
+
+            .stat-card {
+                padding: 0.8rem 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 1.4rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .name-title {
+                font-size: 1.75rem;
+            }
+
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .back-to-top {
+                bottom: 1.2rem;
+                right: 1.2rem;
+                width: 42px;
+                height: 42px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -374,381 +998,606 @@
 <body>
     <div class="container" id="app">
         <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="#about">About</a>
-                    <a class="nav-item nav-link" href="#education">Education</a>
-                    <a class="nav-item nav-link" href="#publications">Publications</a>
-                    <a class="nav-item nav-link" href="#research">Research</a>
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link active" href="#about">About</a>
+                        <a class="nav-item nav-link" href="#education">Education</a>
+                        <a class="nav-item nav-link" href="#publications">Publications</a>
+                        <a class="nav-item nav-link" href="#research">Research</a>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="sunIcon">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="moonIcon" style="display:none">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </nav>
 
-        <div class="row mt-5 pt-4" id="about">
-            <div class="col-md-4 text-center">
-                <img src="assets/images/profile.jpg" alt="Kaiyuan Chen" class="profile-img">
-            </div>
-            <div class="col-md-8">
-                <h1 class="mb-3"><b>Kaiyuan Chen</b></h1>
-                
-                <p class="mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-building mr-2" viewBox="0 0 16 16">
-                        <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/>
-                        <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
-                    </svg>
-                    ByteDance
-                </p>
-                
-                <p class="mb-3">
-                    <span class="badge badge-custom">AI4Weather</span>
-                    <span class="badge badge-custom">Video Generation</span>
-                    <span class="badge badge-custom">Deep Learning</span>
-                    <span class="badge badge-custom">LLM</span>
-                    <span class="badge badge-custom">Scaling Laws</span>
-                </p>
-
-                <div class="contact-info mb-4">
-                    <p class="mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-google mr-2" viewBox="0 0 16 16">
-                            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+        <section class="profile-section" id="about">
+            <div class="row mt-5 pt-4">
+                <div class="col-md-4 text-center">
+                    <div class="profile-img-wrapper">
+                        <img src="assets/images/profile.jpg" alt="Portrait of Kaiyuan Chen" class="profile-img">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h1 class="name-title mb-2"><b>Kaiyuan Chen</b></h1>
+                    
+                    <p class="affiliation mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+                            <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/>
+                            <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
                         </svg>
-                        <a href="https://scholar.google.com/citations?user=1bKT6toAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
+                        Research Scientist at ByteDance
                     </p>
-                    <p class="mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope mr-2" viewBox="0 0 16 16">
-                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-.5a.5.5 0 0 0-.5.5v.217l6.5 3.9 6.5-3.9V4a.5.5 0 0 0-.5-.5H2Zm12.5 1.775-4.708 2.825L14.5 11.11V5.275Zm-.034 6.814-5.636-3.38L8 9.583l-.83-.874-5.636 3.38A.5.5 0 0 0 2 12.5h12a.5.5 0 0 0 .466-.411ZM1.5 11.11l4.708-3.01L1.5 5.275v5.836Z"/>
-                        </svg>
-                        <a href="mailto:chenky2022@gmail.com">chenky2022@gmail.com</a>
+                    
+                    <p class="mb-3">
+                        <span class="badge badge-custom">AI4Weather</span>
+                        <span class="badge badge-custom">Video Generation</span>
+                        <span class="badge badge-custom">Deep Learning</span>
+                        <span class="badge badge-custom">LLM</span>
+                        <span class="badge badge-custom">AI Agents</span>
+                        <span class="badge badge-custom">Scaling Laws</span>
                     </p>
-                    <p class="mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github mr-2" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                        <a href="https://github.com/chenky9106" target="_blank">chenky9106</a>
-                    </p>
-                </div>
-            </div>
-        </div>
 
-        <div class="row mt-4" id="education">
-            <div class="col">
-                <h2 class="mb-4"><b>Education</b></h2>
-                
-                <div class="education-item">
-                    <h5>M.S. in Software Engineering</h5>
-                    <p class="mb-1">Machine Learning Lab, School of Software, Tsinghua University</p>
-                    <p class="education-date">Aug 2021 - Jun 2024</p>
-                </div>
+                    <div class="contact-info mb-3">
+                        <p class="mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                            </svg>
+                            <a href="https://scholar.google.com/citations?user=1bKT6toAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
+                        </p>
+                        <p class="mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-.5a.5.5 0 0 0-.5.5v.217l6.5 3.9 6.5-3.9V4a.5.5 0 0 0-.5-.5H2Zm12.5 1.775-4.708 2.825L14.5 11.11V5.275Zm-.034 6.814-5.636-3.38L8 9.583l-.83-.874-5.636 3.38A.5.5 0 0 0 2 12.5h12a.5.5 0 0 0 .466-.411ZM1.5 11.11l4.708-3.01L1.5 5.275v5.836Z"/>
+                            </svg>
+                            <a href="mailto:chenky2022@gmail.com">chenky2022@gmail.com</a>
+                        </p>
+                        <p class="mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            <a href="https://github.com/chenky9106" target="_blank">chenky9106</a>
+                        </p>
+                    </div>
 
-                <div class="education-item">
-                    <h5>B.S. in Mathematics</h5>
-                    <p class="mb-1">Department of Mathematical Sciences, Tsinghua University</p>
-                    <p class="education-date">Aug 2017 - Jun 2021</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-4" id="publications">
-            <div class="col">
-                <div class="pub-headline">
-                    <h2 class="mb-0"><b>Publications</b></h2>
-                    <small>
-                        Synced from <a href="https://scholar.google.com/citations?user=1bKT6toAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
-                        on March 10, 2026. All papers are downloaded locally with figure covers.
-                    </small>
-                </div>
-
-                <h3 class="pub-subtitle"><b>High Light · Important Works</b></h3>
-                <div class="pub-highlight-grid">
-                    <article class="pub-card" style="animation-delay:0.03s">
-                        <img src="assets/images/papers/nowcastnet.jpg" alt="NowcastNet highlight figure" class="pub-cover">
-                        <div class="pub-card-body">
-                            <p class="pub-kicker mb-0">Nature · 2023</p>
-                            <h4 class="pub-title">
-                                <a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Skilful nowcasting of extreme precipitation with NowcastNet</a>
-                            </h4>
-                            <p class="pub-authors">Y Zhang, M Long, K Chen, L Xing, R Jin, MI Jordan, J Wang</p>
-                            <p class="pub-desc">A generative nowcasting system that combines physical-evolution priors with data-driven learning for large-area, short-term extreme precipitation prediction.</p>
-                            <div class="meta-row">
-                                <span class="meta-pill meta-highlight">High Light</span>
-                                <span class="meta-pill">Citations: 548</span>
-                            </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">943</div>
+                            <div class="stat-label">Citations</div>
                         </div>
-                    </article>
-
-                    <article class="pub-card" style="animation-delay:0.08s">
-                        <img src="assets/images/papers/cogdpm.jpg" alt="CogDPM highlight figure" class="pub-cover">
-                        <div class="pub-card-body">
-                            <p class="pub-kicker mb-0">ICML · 2024</p>
-                            <h4 class="pub-title">
-                                <a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">CogDPM: Diffusion Probabilistic Models via Cognitive Predictive Coding</a>
-                            </h4>
-                            <p class="pub-authors">K Chen, X Guo, Y Zhang, J Wang, M Long</p>
-                            <p class="pub-desc">Bridges predictive-coding principles with diffusion models to improve precision-aware attention and spatiotemporal forecasting performance.</p>
-                            <div class="meta-row">
-                                <span class="meta-pill meta-highlight">High Light</span>
-                                <span class="meta-pill">Citations: 2</span>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-value">6</div>
+                            <div class="stat-label">h-index</div>
                         </div>
-                    </article>
-
-                    <article class="pub-card" style="animation-delay:0.12s">
-                        <img src="assets/images/papers/seed15-thinking.jpg" alt="Seed1.5-Thinking benchmark figure" class="pub-cover">
-                        <div class="pub-card-body">
-                            <p class="pub-kicker mb-0">arXiv · 2025</p>
-                            <h4 class="pub-title">
-                                <a href="https://arxiv.org/abs/2504.13914" target="_blank">Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning</a>
-                            </h4>
-                            <p class="pub-authors">ByteDance Seed, J Chen, T Fan, X Liu, ...</p>
-                            <p class="pub-desc">A reasoning model trained with reinforcement learning that strengthens think-before-answer behavior across math, coding, and tool-use benchmarks.</p>
-                            <div class="meta-row">
-                                <span class="meta-pill meta-highlight">High Light</span>
-                                <span class="meta-pill">Citations: 92</span>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">i10-index</div>
                         </div>
-                    </article>
-
-                    <article class="pub-card" style="animation-delay:0.16s">
-                        <img src="assets/images/papers/xbench.jpg" alt="xbench benchmark framework figure" class="pub-cover">
-                        <div class="pub-card-body">
-                            <p class="pub-kicker mb-0">arXiv · 2025</p>
-                            <h4 class="pub-title">
-                                <a href="https://arxiv.org/abs/2506.13651" target="_blank">xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations</a>
-                            </h4>
-                            <p class="pub-authors">K Chen, Y Ren, Y Liu, X Hu, H Tian, ...</p>
-                            <p class="pub-desc">Introduces a profession-aligned evaluation suite for measuring real-world productivity scaling and market readiness of AI agents.</p>
-                            <div class="meta-row">
-                                <span class="meta-pill meta-highlight">High Light</span>
-                                <span class="meta-pill">Citations: 61</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <h3 class="pub-subtitle mt-5"><b>Timeline · Newest to Earliest</b></h3>
-                <div class="timeline-wrap">
-                    <div class="timeline-row" style="animation-delay:0.02s">
-                        <div class="timeline-year">2026</div>
-                        <article class="timeline-item">
-                            <div class="timeline-head">
-                                <div>
-                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2601.06521" target="_blank">BabyVision: Visual Reasoning Beyond Language</a></h4>
-                                    <p class="timeline-venue mb-0">arXiv:2601.06521</p>
-                                </div>
-                                <span class="meta-pill">Citations: 4</span>
-                            </div>
-                            <div class="timeline-main">
-                                <img src="assets/images/papers/babyvision.jpg" alt="BabyVision figure">
-                                <div>
-                                    <p class="timeline-desc">Studies visual reasoning capability beyond language shortcuts and benchmarks multimodal models against human developmental priors.</p>
-                                    <p class="timeline-links mb-0">
-                                        <a href="https://arxiv.org/abs/2601.06521" target="_blank">arXiv</a>
-                                        <a href="assets/papers/babyvision.pdf" target="_blank">Local PDF</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="timeline-row" style="animation-delay:0.04s">
-                        <div class="timeline-year">&nbsp;</div>
-                        <article class="timeline-item">
-                            <div class="timeline-head">
-                                <div>
-                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2601.20613" target="_blank">AgentIF-OneDay: A Task-level Instruction-Following Benchmark for General AI Agents in Daily Scenarios</a></h4>
-                                    <p class="timeline-venue mb-0">arXiv:2601.20613</p>
-                                </div>
-                                <span class="meta-pill">Citations: 0</span>
-                            </div>
-                            <div class="timeline-main">
-                                <img src="assets/images/papers/agentif-oneday.jpg" alt="AgentIF-OneDay benchmark figure">
-                                <div>
-                                    <p class="timeline-desc">Builds a day-scale benchmark for long-horizon task execution, testing instruction following, tool usage, and reliability in realistic daily workflows.</p>
-                                    <p class="timeline-links mb-0">
-                                        <a href="https://arxiv.org/abs/2601.20613" target="_blank">arXiv</a>
-                                        <a href="assets/papers/agentif-oneday.pdf" target="_blank">Local PDF</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="timeline-row" style="animation-delay:0.06s">
-                        <div class="timeline-year">2025</div>
-                        <article class="timeline-item highlight">
-                            <div class="timeline-head">
-                                <div>
-                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2504.13914" target="_blank">Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning</a></h4>
-                                    <p class="timeline-venue mb-0">arXiv:2504.13914</p>
-                                </div>
-                                <div class="meta-row">
-                                    <span class="meta-pill meta-highlight">High Light</span>
-                                    <span class="meta-pill">Citations: 92</span>
-                                </div>
-                            </div>
-                            <div class="timeline-main">
-                                <img src="assets/images/papers/seed15-thinking.jpg" alt="Seed1.5-Thinking result figure">
-                                <div>
-                                    <p class="timeline-desc">Proposes a reinforcement learning pipeline for reasoning-heavy LLM behavior with major gains on hard reasoning and coding evaluations.</p>
-                                    <p class="timeline-links mb-0">
-                                        <a href="https://arxiv.org/abs/2504.13914" target="_blank">arXiv</a>
-                                        <a href="assets/papers/seed15-thinking.pdf" target="_blank">Local PDF</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="timeline-row" style="animation-delay:0.08s">
-                        <div class="timeline-year">&nbsp;</div>
-                        <article class="timeline-item highlight">
-                            <div class="timeline-head">
-                                <div>
-                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2506.13651" target="_blank">xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations</a></h4>
-                                    <p class="timeline-venue mb-0">arXiv:2506.13651</p>
-                                </div>
-                                <div class="meta-row">
-                                    <span class="meta-pill meta-highlight">High Light</span>
-                                    <span class="meta-pill">Citations: 61</span>
-                                </div>
-                            </div>
-                            <div class="timeline-main">
-                                <img src="assets/images/papers/xbench.jpg" alt="xbench task framework figure">
-                                <div>
-                                    <p class="timeline-desc">Defines domain-agent evaluations tied to real professional tasks and introduces a practical path for measuring agent productivity scaling.</p>
-                                    <p class="timeline-links mb-0">
-                                        <a href="https://arxiv.org/abs/2506.13651" target="_blank">arXiv</a>
-                                        <a href="assets/papers/xbench.pdf" target="_blank">Local PDF</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="timeline-row" style="animation-delay:0.1s">
-                        <div class="timeline-year">&nbsp;</div>
-                        <article class="timeline-item">
-                            <div class="timeline-head">
-                                <div>
-                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2511.11238" target="_blank">Virtual Width Networks</a></h4>
-                                    <p class="timeline-venue mb-0">arXiv:2511.11238</p>
-                                </div>
-                                <span class="meta-pill">Citations: 0</span>
-                            </div>
-                            <div class="timeline-main">
-                                <img src="assets/images/papers/virtual-width-networks.jpg" alt="Virtual Width Networks architecture">
-                                <div>
-                                    <p class="timeline-desc">Introduces a virtual-width design that increases effective representational capacity while keeping backbone hidden size fixed and compute efficient.</p>
-                                    <p class="timeline-links mb-0">
-                                        <a href="https://arxiv.org/abs/2511.11238" target="_blank">arXiv</a>
-                                        <a href="assets/papers/virtual-width-networks.pdf" target="_blank">Local PDF</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="timeline-row" style="animation-delay:0.12s">
-                        <div class="timeline-year">&nbsp;</div>
-                        <article class="timeline-item">
-                            <div class="timeline-head">
-                                <div>
-                                    <h4 class="timeline-title"><a href="https://arxiv.org/abs/2502.17262" target="_blank">Unveiling Downstream Performance Scaling of LLMs: A Clustering-Based Perspective</a></h4>
-                                    <p class="timeline-venue mb-0">arXiv:2502.17262</p>
-                                </div>
-                                <span class="meta-pill">Citations: 5</span>
-                            </div>
-                            <div class="timeline-main">
-                                <img src="assets/images/papers/llm-scaling-clustering.jpg" alt="LLM downstream scaling clustering figure">
-                                <div>
-                                    <p class="timeline-desc">Presents a clustering-based way to estimate downstream scaling behaviors during pre-training, helping model planning and resource allocation.</p>
-                                    <p class="timeline-links mb-0">
-                                        <a href="https://arxiv.org/abs/2502.17262" target="_blank">arXiv</a>
-                                        <a href="assets/papers/llm-scaling-clustering.pdf" target="_blank">Local PDF</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="timeline-row" style="animation-delay:0.14s">
-                        <div class="timeline-year">2024</div>
-                        <article class="timeline-item highlight">
-                            <div class="timeline-head">
-                                <div>
-                                    <h4 class="timeline-title"><a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">CogDPM: Diffusion Probabilistic Models via Cognitive Predictive Coding</a></h4>
-                                    <p class="timeline-venue mb-0">ICML 2024</p>
-                                </div>
-                                <div class="meta-row">
-                                    <span class="meta-pill meta-highlight">High Light</span>
-                                    <span class="meta-pill">Citations: 2</span>
-                                </div>
-                            </div>
-                            <div class="timeline-main">
-                                <img src="assets/images/papers/cogdpm.jpg" alt="CogDPM diagram">
-                                <div>
-                                    <p class="timeline-desc">Combines cognitive predictive coding and diffusion probabilistic modeling for better uncertainty-aware forecasting in dynamics and weather tasks.</p>
-                                    <p class="timeline-links mb-0">
-                                        <a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">PMLR</a>
-                                        <a href="https://arxiv.org/abs/2405.02384" target="_blank">arXiv</a>
-                                        <a href="assets/papers/cogdpm.pdf" target="_blank">Local PDF</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="timeline-row" style="animation-delay:0.16s">
-                        <div class="timeline-year">2023</div>
-                        <article class="timeline-item highlight">
-                            <div class="timeline-head">
-                                <div>
-                                    <h4 class="timeline-title"><a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Skilful nowcasting of extreme precipitation with NowcastNet</a></h4>
-                                    <p class="timeline-venue mb-0">Nature 619 (7970), 526-532</p>
-                                </div>
-                                <div class="meta-row">
-                                    <span class="meta-pill meta-highlight">High Light</span>
-                                    <span class="meta-pill">Citations: 548</span>
-                                </div>
-                            </div>
-                            <div class="timeline-main">
-                                <img src="assets/images/papers/nowcastnet.jpg" alt="NowcastNet architecture">
-                                <div>
-                                    <p class="timeline-desc">A milestone weather nowcasting model validated with meteorologist studies and strong gains on extreme precipitation events.</p>
-                                    <p class="timeline-links mb-0">
-                                        <a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Nature</a>
-                                        <a href="assets/papers/nowcastnet.pdf" target="_blank">Local PDF</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="row mt-4 mb-5" id="research">
-            <div class="col">
-                <h2 class="mb-4"><b>Research Interests</b></h2>
-                <ul>
-                    <li>AI for Weather Forecasting</li>
-                    <li>Video Generation</li>
-                    <li>Deep Learning</li>
-                    <li>Diffusion Models</li>
-                    <li>Large Language Models (LLM)</li>
-                    <li>Synthetic Data Generation</li>
-                    <li>Scaling Laws in AI</li>
-                </ul>
+        <section id="education">
+            <div class="row mt-4">
+                <div class="col">
+                    <h2><b>Education</b></h2>
+                    
+                    <div class="education-item">
+                        <h5>M.S. in Software Engineering</h5>
+                        <p class="mb-1">Machine Learning Lab, School of Software, Tsinghua University</p>
+                        <p class="education-date">Aug 2021 – Jun 2024</p>
+                    </div>
+
+                    <div class="education-item">
+                        <h5>B.S. in Mathematics</h5>
+                        <p class="mb-1">Department of Mathematical Sciences, Tsinghua University</p>
+                        <p class="education-date">Aug 2017 – Jun 2021</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
+        <section id="publications">
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="pub-headline">
+                        <h2 class="mb-0"><b>Publications</b></h2>
+                        <small>
+                            Synced from <a href="https://scholar.google.com/citations?user=1bKT6toAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
+                            on June 24, 2026 · 10 papers total
+                        </small>
+                    </div>
+
+                    <h3 class="pub-subtitle"><b>Selected Works</b></h3>
+                    <div class="pub-highlight-grid">
+                        <article class="pub-card" data-animate>
+                            <div class="pub-cover-wrapper">
+                                <img src="assets/images/papers/nowcastnet.jpg" alt="NowcastNet highlight figure" class="pub-cover">
+                            </div>
+                            <div class="pub-card-body">
+                                <p class="pub-kicker mb-0">Nature · 2023</p>
+                                <h4 class="pub-title">
+                                    <a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Skilful nowcasting of extreme precipitation with NowcastNet</a>
+                                </h4>
+                                <p class="pub-authors">Y Zhang, M Long, K Chen, L Xing, R Jin, MI Jordan, J Wang</p>
+                                <p class="pub-desc">A generative nowcasting system that combines physical-evolution priors with data-driven learning for large-area, short-term extreme precipitation prediction.</p>
+                                <div class="meta-row">
+                                    <span class="meta-pill meta-highlight">★ Featured</span>
+                                    <span class="meta-pill">673 citations</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pub-card" data-animate style="transition-delay:0.05s">
+                            <div class="pub-cover-wrapper">
+                                <img src="assets/images/papers/seed15-thinking.jpg" alt="Seed1.5-Thinking benchmark figure" class="pub-cover">
+                            </div>
+                            <div class="pub-card-body">
+                                <p class="pub-kicker mb-0">arXiv · 2025</p>
+                                <h4 class="pub-title">
+                                    <a href="https://arxiv.org/abs/2504.13914" target="_blank">Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning</a>
+                                </h4>
+                                <p class="pub-authors">ByteDance Seed, J Chen, T Fan, X Liu, K Chen, ...</p>
+                                <p class="pub-desc">A reasoning model trained with reinforcement learning that strengthens think-before-answer behavior across math, coding, and tool-use benchmarks.</p>
+                                <div class="meta-row">
+                                    <span class="meta-pill meta-highlight">★ Featured</span>
+                                    <span class="meta-pill">111 citations</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pub-card" data-animate style="transition-delay:0.1s">
+                            <div class="pub-cover-wrapper">
+                                <img src="assets/images/papers/xbench.jpg" alt="xbench benchmark framework figure" class="pub-cover">
+                            </div>
+                            <div class="pub-card-body">
+                                <p class="pub-kicker mb-0">arXiv · 2025</p>
+                                <h4 class="pub-title">
+                                    <a href="https://arxiv.org/abs/2506.13651" target="_blank">xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations</a>
+                                </h4>
+                                <p class="pub-authors">K Chen, Y Ren, Y Liu, X Hu, H Tian, ...</p>
+                                <p class="pub-desc">Introduces a profession-aligned evaluation suite for measuring real-world productivity scaling and market readiness of AI agents.</p>
+                                <div class="meta-row">
+                                    <span class="meta-pill meta-highlight">★ Featured</span>
+                                    <span class="meta-pill">89 citations</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pub-card" data-animate style="transition-delay:0.15s">
+                            <div class="pub-cover-wrapper">
+                                <img src="assets/images/papers/seed18-model-card.jpg" alt="Seed1.8 model card figure" class="pub-cover">
+                            </div>
+                            <div class="pub-card-body">
+                                <p class="pub-kicker mb-0">arXiv · 2026</p>
+                                <h4 class="pub-title">
+                                    <a href="https://arxiv.org/abs/2603.20633" target="_blank">Seed1.8 Model Card: Towards Generalized Real-World Agency</a>
+                                </h4>
+                                <p class="pub-authors">ByteDance Seed</p>
+                                <p class="pub-desc">A comprehensive model card for Seed1.8, showcasing generalized real-world agency capabilities across diverse professional domains.</p>
+                                <div class="meta-row">
+                                    <span class="meta-pill meta-highlight">★ Featured</span>
+                                    <span class="meta-pill">36 citations</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <h3 class="pub-subtitle mt-5"><b>All Publications</b></h3>
+                    <div class="timeline-wrap">
+                        <!-- 2026 -->
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">2026</div>
+                            <article class="timeline-item highlight">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://arxiv.org/abs/2603.20633" target="_blank">Seed1.8 Model Card: Towards Generalized Real-World Agency</a></h4>
+                                        <p class="timeline-venue mb-0">arXiv:2603.20633</p>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-pill meta-highlight">★ Featured</span>
+                                        <span class="meta-pill">36 citations</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/seed18-model-card.jpg" alt="Seed1.8 Model Card figure">
+                                    <div>
+                                        <p class="timeline-desc">Presents Seed1.8, a versatile agent model with strong real-world performance across coding, office tasks, and professional domains.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://arxiv.org/abs/2603.20633" target="_blank">arXiv</a>
+                                            <a href="assets/papers/seed18-model-card.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">&nbsp;</div>
+                            <article class="timeline-item">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://arxiv.org/abs/2601.06521" target="_blank">BabyVision: Visual Reasoning Beyond Language</a></h4>
+                                        <p class="timeline-venue mb-0">arXiv:2601.06521</p>
+                                    </div>
+                                    <span class="meta-pill">17 citations</span>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/babyvision.jpg" alt="BabyVision figure">
+                                    <div>
+                                        <p class="timeline-desc">Studies visual reasoning capability beyond language shortcuts and benchmarks multimodal models against human developmental priors.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://arxiv.org/abs/2601.06521" target="_blank">arXiv</a>
+                                            <a href="assets/papers/babyvision.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">&nbsp;</div>
+                            <article class="timeline-item">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://arxiv.org/abs/2603.07980" target="_blank">$OneMillion-Bench: How Far are Language Agents from Human Experts?</a></h4>
+                                        <p class="timeline-venue mb-0">arXiv:2603.07980</p>
+                                    </div>
+                                    <span class="meta-pill">5 citations</span>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/onemillion-bench.jpg" alt="OneMillion-Bench figure">
+                                    <div>
+                                        <p class="timeline-desc">A million-scale benchmark evaluating language agents against human expert performance across diverse professional tasks.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://arxiv.org/abs/2603.07980" target="_blank">arXiv</a>
+                                            <a href="assets/papers/onemillion-bench.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">&nbsp;</div>
+                            <article class="timeline-item">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://arxiv.org/abs/2601.20613" target="_blank">AgentIF-OneDay: A Task-level Instruction-Following Benchmark for General AI Agents in Daily Scenarios</a></h4>
+                                        <p class="timeline-venue mb-0">arXiv:2601.20613</p>
+                                    </div>
+                                    <span class="meta-pill">1 citation</span>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/agentif-oneday.jpg" alt="AgentIF-OneDay benchmark figure">
+                                    <div>
+                                        <p class="timeline-desc">Builds a day-scale benchmark for long-horizon task execution, testing instruction following, tool usage, and reliability in realistic daily workflows.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://arxiv.org/abs/2601.20613" target="_blank">arXiv</a>
+                                            <a href="assets/papers/agentif-oneday.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- 2025 -->
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">2025</div>
+                            <article class="timeline-item highlight">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://arxiv.org/abs/2504.13914" target="_blank">Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning</a></h4>
+                                        <p class="timeline-venue mb-0">arXiv:2504.13914</p>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-pill meta-highlight">★ Featured</span>
+                                        <span class="meta-pill">111 citations</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/seed15-thinking.jpg" alt="Seed1.5-Thinking result figure">
+                                    <div>
+                                        <p class="timeline-desc">Proposes a reinforcement learning pipeline for reasoning-heavy LLM behavior with major gains on hard reasoning and coding evaluations.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://arxiv.org/abs/2504.13914" target="_blank">arXiv</a>
+                                            <a href="assets/papers/seed15-thinking.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">&nbsp;</div>
+                            <article class="timeline-item highlight">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://arxiv.org/abs/2506.13651" target="_blank">xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations</a></h4>
+                                        <p class="timeline-venue mb-0">arXiv:2506.13651</p>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-pill meta-highlight">★ Featured</span>
+                                        <span class="meta-pill">89 citations</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/xbench.jpg" alt="xbench task framework figure">
+                                    <div>
+                                        <p class="timeline-desc">Defines domain-agent evaluations tied to real professional tasks and introduces a practical path for measuring agent productivity scaling.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://arxiv.org/abs/2506.13651" target="_blank">arXiv</a>
+                                            <a href="assets/papers/xbench.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">&nbsp;</div>
+                            <article class="timeline-item">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://arxiv.org/abs/2502.17262" target="_blank">Unveiling Downstream Performance Scaling of LLMs: A Clustering-Based Perspective</a></h4>
+                                        <p class="timeline-venue mb-0">arXiv:2502.17262</p>
+                                    </div>
+                                    <span class="meta-pill">6 citations</span>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/llm-scaling-clustering.jpg" alt="LLM downstream scaling clustering figure">
+                                    <div>
+                                        <p class="timeline-desc">Presents a clustering-based way to estimate downstream scaling behaviors during pre-training, helping model planning and resource allocation.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://arxiv.org/abs/2502.17262" target="_blank">arXiv</a>
+                                            <a href="assets/papers/llm-scaling-clustering.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">&nbsp;</div>
+                            <article class="timeline-item">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://arxiv.org/abs/2511.11238" target="_blank">Virtual Width Networks</a></h4>
+                                        <p class="timeline-venue mb-0">arXiv:2511.11238</p>
+                                    </div>
+                                    <span class="meta-pill">2 citations</span>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/virtual-width-networks.jpg" alt="Virtual Width Networks architecture">
+                                    <div>
+                                        <p class="timeline-desc">Introduces a virtual-width design that increases effective representational capacity while keeping backbone hidden size fixed and compute efficient.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://arxiv.org/abs/2511.11238" target="_blank">arXiv</a>
+                                            <a href="assets/papers/virtual-width-networks.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- 2024 -->
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">2024</div>
+                            <article class="timeline-item highlight">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">CogDPM: Diffusion Probabilistic Models via Cognitive Predictive Coding</a></h4>
+                                        <p class="timeline-venue mb-0">ICML 2024</p>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-pill meta-highlight">★ Featured</span>
+                                        <span class="meta-pill">3 citations</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/cogdpm.jpg" alt="CogDPM diagram">
+                                    <div>
+                                        <p class="timeline-desc">Combines cognitive predictive coding and diffusion probabilistic modeling for better uncertainty-aware forecasting in dynamics and weather tasks.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://proceedings.mlr.press/v235/chen24o.html" target="_blank">PMLR</a>
+                                            <a href="https://arxiv.org/abs/2405.02384" target="_blank">arXiv</a>
+                                            <a href="assets/papers/cogdpm.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- 2023 -->
+                        <div class="timeline-row" data-animate>
+                            <div class="timeline-year">2023</div>
+                            <article class="timeline-item highlight">
+                                <div class="timeline-head">
+                                    <div>
+                                        <h4 class="timeline-title"><a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Skilful nowcasting of extreme precipitation with NowcastNet</a></h4>
+                                        <p class="timeline-venue mb-0">Nature 619 (7970), 526-532</p>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-pill meta-highlight">★ Featured</span>
+                                        <span class="meta-pill">673 citations</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-main">
+                                    <img src="assets/images/papers/nowcastnet.jpg" alt="NowcastNet architecture">
+                                    <div>
+                                        <p class="timeline-desc">A milestone weather nowcasting model validated with meteorologist studies and strong gains on extreme precipitation events.</p>
+                                        <p class="timeline-links mb-0">
+                                            <a href="https://www.nature.com/articles/s41586-023-06184-4" target="_blank">Nature</a>
+                                            <a href="assets/papers/nowcastnet.pdf" target="_blank">PDF</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <div class="row mt-4 mb-5">
+                <div class="col">
+                    <h2><b>Research Interests</b></h2>
+                    <ul class="research-tags">
+                        <li>AI for Weather Forecasting</li>
+                        <li>Video Generation</li>
+                        <li>Deep Learning</li>
+                        <li>Diffusion Models</li>
+                        <li>Large Language Models</li>
+                        <li>AI Agents</li>
+                        <li>Synthetic Data Generation</li>
+                        <li>Scaling Laws in AI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>
+                © 2026 Kaiyuan Chen · Built with ❤️ and open source
+                <br>
+                <span style="font-size:0.8rem;opacity:0.7;">Last updated: June 24, 2026 · Data synced from Google Scholar</span>
+            </p>
+        </footer>
     </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <script src="vender/jquery-3.5.1.min.js"></script>
     <script src="vender/bootstrap.min.js"></script>
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const html = document.documentElement;
+
+        // Check saved theme or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            html.setAttribute('data-theme', 'dark');
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for scroll animations
+        const animateElements = document.querySelectorAll('[data-animate]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        animateElements.forEach(el => observer.observe(el));
+
+        // Initial animation for elements above the fold
+        setTimeout(() => {
+            animateElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('visible');
+                }
+            });
+        }, 100);
+    </script>
 </body>
 </html>
