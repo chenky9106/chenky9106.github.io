@@ -1,20 +1,20 @@
 :root {
     color-scheme: light;
-    --paper: #f3f0e7;
-    --paper-soft: #faf8f1;
-    --paper-raised: #fffdf7;
-    --ink: #0d2522;
-    --ink-soft: #3d5350;
-    --ink-faint: #526763;
-    --teal: #176b60;
-    --teal-bright: #288f80;
-    --sky: #7bc6d7;
-    --coral: #b84a35;
-    --lime: #dbe8a4;
-    --line: rgba(13, 37, 34, 0.16);
-    --line-strong: rgba(13, 37, 34, 0.34);
-    --shadow: 0 26px 80px rgba(13, 37, 34, 0.14);
-    --header-bg: rgba(243, 240, 231, 0.88);
+    --paper: #f3f7fb;
+    --paper-soft: #f8fbfe;
+    --paper-raised: #ffffff;
+    --ink: #0b1f33;
+    --ink-soft: #334e68;
+    --ink-faint: #506a80;
+    --teal: #155b9a;
+    --teal-bright: #2b79b9;
+    --sky: #86c5e9;
+    --coral: #2856b6;
+    --lime: #c9e5f7;
+    --line: rgba(11, 31, 51, 0.15);
+    --line-strong: rgba(11, 31, 51, 0.32);
+    --shadow: 0 26px 80px rgba(21, 91, 154, 0.15);
+    --header-bg: rgba(243, 247, 251, 0.9);
     --serif: "Source Serif 4", Georgia, serif;
     --sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
     --shell: min(1180px, calc(100vw - 48px));
@@ -24,21 +24,21 @@
 
 html[data-theme="dark"] {
     color-scheme: dark;
-    --paper: #0c1d1b;
-    --paper-soft: #102522;
-    --paper-raised: #142d29;
-    --ink: #f4f1e8;
-    --ink-soft: #c0cbc8;
-    --ink-faint: #8fa39f;
-    --teal: #78d2c1;
-    --teal-bright: #9be2d4;
-    --sky: #83cedf;
-    --coral: #ff8a6c;
-    --lime: #dbe8a4;
-    --line: rgba(244, 241, 232, 0.16);
-    --line-strong: rgba(244, 241, 232, 0.34);
+    --paper: #071725;
+    --paper-soft: #0b2032;
+    --paper-raised: #102a40;
+    --ink: #eff6fc;
+    --ink-soft: #bcd0df;
+    --ink-faint: #8faac0;
+    --teal: #72c1ed;
+    --teal-bright: #9dd8f7;
+    --sky: #4d9ed1;
+    --coral: #73a6e8;
+    --lime: #bfddf2;
+    --line: rgba(239, 246, 252, 0.16);
+    --line-strong: rgba(239, 246, 252, 0.34);
     --shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
-    --header-bg: rgba(12, 29, 27, 0.9);
+    --header-bg: rgba(7, 23, 37, 0.9);
 }
 
 *,
@@ -58,7 +58,7 @@ body {
     overflow-x: hidden;
     color: var(--ink);
     background:
-        radial-gradient(circle at 10% -10%, rgba(123, 198, 215, 0.21), transparent 27rem),
+        radial-gradient(circle at 10% -10%, rgba(134, 197, 233, 0.24), transparent 27rem),
         linear-gradient(180deg, var(--paper-soft), var(--paper) 42rem);
     font-family: var(--sans);
     font-size: 16px;
@@ -69,7 +69,7 @@ body {
 
 html[data-theme="dark"] body {
     background:
-        radial-gradient(circle at 10% -10%, rgba(123, 198, 215, 0.11), transparent 27rem),
+        radial-gradient(circle at 10% -10%, rgba(77, 158, 209, 0.14), transparent 27rem),
         linear-gradient(180deg, var(--paper-soft), var(--paper) 42rem);
 }
 
@@ -120,7 +120,7 @@ a:hover {
 }
 
 ::selection {
-    color: #0d2522;
+    color: #0b1f33;
     background: var(--lime);
 }
 
@@ -136,7 +136,7 @@ a:hover {
     left: 0.75rem;
     padding: 0.7rem 1rem;
     color: #fff;
-    background: #0d2522;
+    background: #0b1f33;
     border-radius: 999px;
     transform: translateY(-160%);
     transition: transform 160ms ease;
@@ -160,7 +160,7 @@ a:hover {
 .site-header[data-menu-open="true"] {
     background: var(--header-bg);
     border-bottom-color: var(--line);
-    box-shadow: 0 10px 40px rgba(13, 37, 34, 0.06);
+    box-shadow: 0 10px 40px rgba(21, 91, 154, 0.08);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 }
@@ -362,7 +362,7 @@ a:hover {
     height: 8px;
     background: var(--coral);
     border-radius: 50%;
-    box-shadow: 0 0 0 5px rgba(230, 107, 78, 0.13);
+    box-shadow: 0 0 0 5px rgba(40, 86, 182, 0.16);
 }
 
 .hero h1 {
@@ -480,7 +480,7 @@ html[data-theme="dark"] .hero-domains span {
     left: 2.25rem;
     background:
         linear-gradient(var(--sky), var(--sky)) padding-box,
-        repeating-linear-gradient(135deg, transparent 0 13px, rgba(13, 37, 34, 0.22) 14px 15px) border-box;
+        repeating-linear-gradient(135deg, transparent 0 13px, rgba(11, 31, 51, 0.22) 14px 15px) border-box;
     border: 1px solid transparent;
     border-radius: 48% 48% 10px 10px;
     transform: rotate(4deg);
@@ -494,7 +494,7 @@ html[data-theme="dark"] .hero-domains span {
     border: 1px solid var(--line-strong);
     border-radius: 50% 50% 12px 12px;
     box-shadow: var(--shadow);
-    transform: rotate(-2deg);
+    transform: none;
 }
 
 .portrait-card img {
@@ -502,7 +502,7 @@ html[data-theme="dark"] .hero-domains span {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 50% 50% 8px 8px;
-    filter: saturate(0.84) contrast(1.03);
+    filter: none;
 }
 
 .portrait-card figcaption {
@@ -650,14 +650,14 @@ html[data-theme="dark"] .hero-domains span {
     left: -12rem;
     width: 32rem;
     height: 32rem;
-    background: rgba(219, 232, 164, 0.2);
+    background: rgba(134, 197, 233, 0.2);
     border-radius: 50%;
     content: "";
     filter: blur(2px);
 }
 
 html[data-theme="dark"] .work-section::before {
-    background: rgba(123, 198, 215, 0.06);
+    background: rgba(77, 158, 209, 0.08);
 }
 
 .work-grid {
@@ -689,7 +689,7 @@ html[data-theme="dark"] .work-section::before {
 
 .work-card:hover {
     border-color: var(--line-strong);
-    box-shadow: 0 20px 60px rgba(13, 37, 34, 0.1);
+    box-shadow: 0 20px 60px rgba(21, 91, 154, 0.12);
     transform: translateY(-3px);
 }
 
@@ -698,7 +698,7 @@ html[data-theme="dark"] .work-section::before {
     display: block;
     min-height: 100%;
     overflow: hidden;
-    background: #d7e1dc;
+    background: #d9e6f0;
 }
 
 .work-image:focus-visible {
@@ -726,8 +726,8 @@ html[data-theme="dark"] .work-section::before {
     left: 0.85rem;
     min-width: 2.4rem;
     padding: 0.42rem 0.5rem;
-    color: #0d2522;
-    background: rgba(243, 240, 231, 0.9);
+    color: #0b1f33;
+    background: rgba(243, 247, 251, 0.92);
     border-radius: 999px;
     font-size: 0.66rem;
     font-weight: 700;
@@ -852,7 +852,7 @@ html[data-theme="dark"] .work-section::before {
 }
 
 .publication-item:hover {
-    background: rgba(123, 198, 215, 0.08);
+    background: rgba(134, 197, 233, 0.1);
 }
 
 .publication-index {
@@ -923,8 +923,8 @@ html[data-theme="dark"] .work-section::before {
     gap: clamp(3rem, 8vw, 7rem);
     overflow: hidden;
     padding: clamp(2.5rem, 6vw, 5rem);
-    color: #f4f1e8;
-    background: #0d2522;
+    color: #eff6fc;
+    background: #0b2942;
     border-radius: 28px;
 }
 
@@ -936,7 +936,7 @@ html[data-theme="dark"] .work-section::before {
     height: 24rem;
     opacity: 0.35;
     background:
-        repeating-radial-gradient(circle, transparent 0 28px, rgba(123, 198, 215, 0.48) 29px 30px);
+        repeating-radial-gradient(circle, transparent 0 28px, rgba(131, 201, 241, 0.48) 29px 30px);
     border-radius: 50%;
     content: "";
 }
@@ -949,20 +949,20 @@ html[data-theme="dark"] .work-section::before {
 
 .profile-intro .section-index,
 .profile-panel .education-label {
-    color: #83cedf;
+    color: #83c9f1;
 }
 
 .profile-intro h2 {
     max-width: 8.5ch;
     margin-top: 1.25rem;
-    color: #f4f1e8;
+    color: #eff6fc;
     font-size: clamp(3.3rem, 6.5vw, 5.9rem);
 }
 
 .profile-intro > p:not(.section-index) {
     max-width: 620px;
     margin: 1.8rem 0 0;
-    color: #c0cbc8;
+    color: #c1d5e3;
     font-size: 1rem;
 }
 
@@ -975,8 +975,8 @@ html[data-theme="dark"] .work-section::before {
 
 .profile-topics span {
     padding: 0.38rem 0.75rem;
-    color: #e8edeb;
-    border: 1px solid rgba(244, 241, 232, 0.28);
+    color: #e7f1f8;
+    border: 1px solid rgba(239, 246, 252, 0.28);
     border-radius: 999px;
     font-size: 0.69rem;
     font-weight: 600;
@@ -988,7 +988,7 @@ html[data-theme="dark"] .work-section::before {
 
 .education-label {
     padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(244, 241, 232, 0.22);
+    border-bottom: 1px solid rgba(239, 246, 252, 0.22);
 }
 
 .education article {
@@ -996,7 +996,7 @@ html[data-theme="dark"] .work-section::before {
     grid-template-columns: 100px 1fr;
     gap: 1rem;
     padding: 1.45rem 0;
-    border-bottom: 1px solid rgba(244, 241, 232, 0.16);
+    border-bottom: 1px solid rgba(239, 246, 252, 0.16);
 }
 
 .education article:last-child {
@@ -1005,7 +1005,7 @@ html[data-theme="dark"] .work-section::before {
 
 .education-date {
     margin: 0.2rem 0 0;
-    color: #83cedf;
+    color: #83c9f1;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -1013,7 +1013,7 @@ html[data-theme="dark"] .work-section::before {
 
 .education h3 {
     margin: 0;
-    color: #f4f1e8;
+    color: #eff6fc;
     font-family: var(--serif);
     font-size: 1.35rem;
     font-weight: 500;
@@ -1022,7 +1022,7 @@ html[data-theme="dark"] .work-section::before {
 
 .education article div p {
     margin: 0.5rem 0 0;
-    color: #9eafab;
+    color: #9fb8c9;
     font-size: 0.77rem;
     line-height: 1.6;
 }
