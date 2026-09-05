@@ -40,7 +40,7 @@
         }
 
         if (themeMeta) {
-            themeMeta.setAttribute('content', isDark ? '#071725' : '#F3F7FB');
+            themeMeta.setAttribute('content', isDark ? '#101720' : '#F5F4F0');
         }
 
         if (persist) {
